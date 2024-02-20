@@ -5,6 +5,7 @@ import clsx from "clsx";
 import { Jost } from "next/font/google";
 import Soria from "next/font/local";
 import { createClient } from "@/prismicio";
+import Header from "./components/Header";
 
 // FONTS
 const jost = Jost({
@@ -43,7 +44,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" className={`${jost.variable} ${soria.variable}`}>
-			<body>{children}</body>
+      <body>
+        <Header />
+        {children}</body>
 		</html>
 	);
 }

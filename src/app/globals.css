@@ -3,6 +3,70 @@
 @tailwind utilities;
 
 body {
+    @apply font-jost;
     color: theme('colors.dark');
     max-width: 1440px;
+}
+
+header {
+    color: theme('colors.light-grey');
+}
+
+.logo-effect a {
+    padding: 10px 0;
+    margin: 0 20px;
+    text-shadow: none;
+    position: relative;
+    white-space: nowrap;
+    color: transparent;
+    font-weight: 300;
+}
+
+.logo-effect a::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden; 
+    padding: 10px 0;
+    width: 0; 
+    color: theme('colors.light-grey');
+    content: attr(data-hover);
+    transition: width 0.5s;   
+}
+
+.logo-effect:hover a::before {
+    width: 100%;
+}
+
+.link-effect {
+    overflow: hidden;
+
+}
+
+.link-effect a {
+    overflow: hidden;
+    padding: 20px;
+    height: 1em;
+    font-weight: 300;
+
+}
+
+.link-effect a span {
+    position: relative;
+    display: inline-block;
+    transition: 0.3s;
+
+}
+
+.link-effect a span::before {
+    color: theme('colors.grey');
+    position: absolute;
+    top: 100%;
+    content: attr(data-hover);
+    transform: translate3d(0, 0, 0);
+
+}
+
+.link-effect a:hover span {
+    transform: translateY(-100%);
 }
