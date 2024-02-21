@@ -51,6 +51,59 @@
             }
           }
         }
+      },
+      "question": {
+        "type": "Text",
+        "config": {
+          "label": "Footer Question",
+          "placeholder": ""
+        }
+      },
+      "cta": {
+        "type": "Text",
+        "config": {
+          "label": "CTA",
+          "placeholder": ""
+        }
+      },
+      "button_mailto": {
+        "type": "Link",
+        "config": {
+          "label": "Button mailto",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "button_text": {
+        "type": "Text",
+        "config": {
+          "label": "Button text",
+          "placeholder": ""
+        }
+      },
+      "social": {
+        "type": "Group",
+        "config": {
+          "label": "Social",
+          "repeat": true,
+          "fields": {
+            "social_link": {
+              "type": "Link",
+              "config": {
+                "label": "Social Link",
+                "placeholder": "",
+                "select": null
+              }
+            },
+            "social_name": {
+              "type": "Text",
+              "config": {
+                "label": "Social name",
+                "placeholder": ""
+              }
+            }
+          }
+        }
       }
     }
   }

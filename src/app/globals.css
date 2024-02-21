@@ -1,18 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html{    background-color: theme('colors.beige');}
 body {
     @apply font-jost;
     color: theme('colors.dark');
     max-width: 1440px;
+
 }
 
 header {
     color: theme('colors.light-grey');
 }
 
-.logo-effect a {
+
+
+/* LOGO ANIM */
+.logo-effect span {
     padding: 10px 0;
     margin: 0 20px;
     text-shadow: none;
@@ -22,25 +26,25 @@ header {
     font-weight: 300;
 }
 
-.logo-effect a::before {
+.logo-effect span::before {
     position: absolute;
     top: 0;
     left: 0;
-    overflow: hidden; 
+    overflow: hidden;
     padding: 10px 0;
-    width: 0; 
+    width: 0;
     color: theme('colors.light-grey');
     content: attr(data-hover);
-    transition: width 0.5s;   
+    transition: width 0.5s;
 }
 
-.logo-effect:hover a::before {
+.logo-effect:hover span::before {
     width: 100%;
 }
 
+/* NAV ANIM */
 .link-effect {
     overflow: hidden;
-
 }
 
 .link-effect a {
@@ -48,14 +52,12 @@ header {
     padding: 20px;
     height: 1em;
     font-weight: 300;
-
 }
 
 .link-effect a span {
     position: relative;
     display: inline-block;
     transition: 0.3s;
-
 }
 
 .link-effect a span::before {
@@ -64,7 +66,6 @@ header {
     top: 100%;
     content: attr(data-hover);
     transform: translate3d(0, 0, 0);
-
 }
 
 .link-effect a:hover span {

@@ -1,0 +1,49 @@
+{
+  "format": "custom",
+  "id": "project_card",
+  "label": "Project",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "selected": {
+        "type": "Boolean",
+        "config": {
+          "label": "Selected",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "project_name": {
+        "type": "Text",
+        "config": {
+          "label": "Project Name",
+          "placeholder": ""
+        }
+      },
+      "project_category": {
+        "type": "Select",
+        "config": {
+          "label": "Project Category",
+          "placeholder": "",
+          "options": ["1", "2"]
+        }
+      },
+      "hero_image": {
+        "type": "Image",
+        "config": {
+          "label": "Hero Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      }
+    }
+  }
+}

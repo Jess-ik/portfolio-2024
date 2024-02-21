@@ -1,0 +1,57 @@
+{
+  "id": "about",
+  "type": "SharedSlice",
+  "name": "About",
+  "description": "About",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "image_design": {
+          "type": "Image",
+          "config": {
+            "label": "Image Design",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "main_text": {
+          "type": "Text",
+          "config": {
+            "label": "Main text",
+            "placeholder": ""
+          }
+        },
+        "image_web": {
+          "type": "Image",
+          "config": {
+            "label": "Image Web",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "second_text": {
+          "type": "Text",
+          "config": {
+            "label": "Second text",
+            "placeholder": ""
+          }
+        },
+        "image_craft": {
+          "type": "Image",
+          "config": {
+            "label": "Image craft",
+            "constraint": {},
+            "thumbnails": []
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

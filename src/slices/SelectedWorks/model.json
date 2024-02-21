@@ -1,0 +1,52 @@
+{
+  "id": "selected_works",
+  "type": "SharedSlice",
+  "name": "SelectedWorks",
+  "description": "SelectedWorks",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "section_title": {
+          "type": "Text",
+          "config": {
+            "label": "Section Title",
+            "placeholder": ""
+          }
+        },
+        "button_link": {
+          "type": "Link",
+          "config": {
+            "label": "Button Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "button_text": {
+          "type": "Text",
+          "config": {
+            "label": "Button Text",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {
+        "project_card": {
+          "type": "Link",
+          "config": {
+            "label": "Project Card",
+            "select": "document",
+            "customtypes": [
+              "project_card"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

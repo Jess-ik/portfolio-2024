@@ -20,14 +20,14 @@ export default function Header() {
 		fetchData();
 	}, []);
 	return (
-		<header className="px-14 py-4 w-screen fixed mix-blend-difference">
+		<header className="px-14 py-4 w-screen fixed mix-blend-difference z-10">
 			<div className="flex gap-4 items-center justify-between">
 				<Link href="/" className="logo-effect flex items-center">
 					<Logo />
 
-					<a href="/" data-hover="Jessica Louvel">
+					<span data-hover="Jessica Louvel">
 						Jessica Louvel
-					</a>
+					</span>
 				</Link>
 
 				<nav>
