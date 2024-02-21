@@ -7,6 +7,7 @@ import Soria from "next/font/local";
 import { createClient } from "@/prismicio";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import ScrollTop from "./components/ScrollTop";
 
 // FONTS
 const jost = Jost({
@@ -48,6 +49,7 @@ export default function RootLayout({
 			<body>
 				<Header />
 				{children}
+				<ScrollTop />
 				<Footer />
 			</body>
 		</html>

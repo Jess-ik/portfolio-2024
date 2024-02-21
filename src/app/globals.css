@@ -1,16 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+
+
 html{    background-color: theme('colors.beige');}
 body {
     @apply font-jost;
     color: theme('colors.dark');
-    max-width: 1440px;
+
 
 }
 
 header {
-    color: theme('colors.light-grey');
+    color: theme('colors.light');
 }
 
 
@@ -71,3 +76,13 @@ header {
 .link-effect a:hover span {
     transform: translateY(-100%);
 }
+
+/* GALLERY */
+
+
+  
+ 
+
+
+
+ 
