@@ -8,6 +8,7 @@ import { createClient } from "@/prismicio";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollTop from "./components/ScrollTop";
+import SmoothScroll from "./components/SmoothScroll";
 
 // FONTS
 const jost = Jost({
@@ -47,10 +48,12 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${jost.variable} ${soria.variable}`}>
 			<body>
-				<Header />
-				{children}
-				<ScrollTop />
-				<Footer />
+				<SmoothScroll>
+					<Header />
+					{children}
+					<ScrollTop />
+					<Footer />
+				</SmoothScroll>
 			</body>
 		</html>
 	);

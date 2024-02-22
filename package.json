@@ -14,6 +14,8 @@
     "@prismicio/client": "^7.3.1",
     "@prismicio/next": "^1.5.0",
     "@prismicio/react": "^2.7.3",
+    "@studio-freight/lenis": "^1.0.36",
+    "@studio-freight/react-lenis": "^0.0.45",
     "clsx": "^2.1.0",
     "framer-motion": "^11.0.5",
     "gsap": "^3.12.5",

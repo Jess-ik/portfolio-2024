@@ -64,7 +64,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 					end: "bottom bottom",
 					scrub: 0.6,
 
-					markers: true,
+					markers: false,
 				},
 			}
 		);
@@ -79,9 +79,9 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
 			<section ref={triggerRef} className="h-[300vh] bg-dark">
-				<div className="sticky top-0 flex flex-col justify-center h-screen border">
-					<h2 className="text-light font-soria text-[10vh] px-14 pb-14">{slice.primary.section_title}</h2>
-					<div ref={galleryRef} className="relative pl-14 flex gap-4 w-fit border">
+				<div className="sticky top-0 flex flex-col justify-center h-screen overflow-x-hidden">
+					<h2 className="text-light font-soria text-[4vw] px-14 pb-14">{slice.primary.section_title}</h2>
+					<div ref={galleryRef} className="relative pl-14 flex gap-4 w-fit ">
 						{selectedWorks.map((item, index) => {
 							if (item && item.data.selected) {
 								return (
