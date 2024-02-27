@@ -5,8 +5,8 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 type HomeDocumentDataSlicesSlice =
+  | AboutSectionSlice
   | AboutSlice
-  | ServicesSlice
   | SelectedWorksSlice
   | LandingSlice;
 
@@ -404,6 +404,146 @@ type AboutSliceVariation = AboutSliceDefault;
 export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
+ * Primary content in *AboutSection → Primary*
+ */
+export interface AboutSectionSliceDefaultPrimary {
+  /**
+   * Heading field in *AboutSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+
+  /**
+   * Paragraph 01 field in *AboutSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.primary.paragraph_01
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  paragraph_01: prismic.KeyTextField;
+
+  /**
+   * Paragraph 02 field in *AboutSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.primary.paragraph_02
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  paragraph_02: prismic.KeyTextField;
+
+  /**
+   * Button Link field in *AboutSection → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField;
+
+  /**
+   * Button text field in *AboutSection → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.primary.button_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_text: prismic.KeyTextField;
+
+  /**
+   * About Image field in *AboutSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.primary.about_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  about_image: prismic.ImageField<never>;
+}
+
+/**
+ * Primary content in *AboutSection → Items*
+ */
+export interface AboutSectionSliceDefaultItem {
+  /**
+   * Service field in *AboutSection → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.items[].service
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  service: prismic.KeyTextField;
+
+  /**
+   * Skills field in *AboutSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.items[].skills
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  skills: prismic.RichTextField;
+
+  /**
+   * Tools field in *AboutSection → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.items[].tools
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  tools: prismic.RichTextField;
+
+  /**
+   * Service Image field in *AboutSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.items[].service_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  service_image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for AboutSection Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSectionSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<AboutSectionSliceDefaultPrimary>,
+  Simplify<AboutSectionSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *AboutSection*
+ */
+type AboutSectionSliceVariation = AboutSectionSliceDefault;
+
+/**
+ * AboutSection Shared Slice
+ *
+ * - **API ID**: `about_section`
+ * - **Description**: AboutSection
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type AboutSectionSlice = prismic.SharedSlice<
+  "about_section",
+  AboutSectionSliceVariation
+>;
+
+/**
  * Primary content in *Landing → Primary*
  */
 export interface LandingSliceDefaultPrimary {
@@ -538,119 +678,6 @@ export type SelectedWorksSlice = prismic.SharedSlice<
   SelectedWorksSliceVariation
 >;
 
-/**
- * Primary content in *Services → Primary*
- */
-export interface ServicesSliceDefaultPrimary {
-  /**
-   * Service field in *Services → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.primary.service
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  service: prismic.KeyTextField;
-
-  /**
-   * Skills field in *Services → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.primary.skills
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  skills: prismic.RichTextField;
-
-  /**
-   * Tools field in *Services → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.primary.tools
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  tools: prismic.RichTextField;
-}
-
-/**
- * Left variation for Services Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ServicesSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<ServicesSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Primary content in *Services → Primary*
- */
-export interface ServicesSliceRightPrimary {
-  /**
-   * Service field in *Services → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.primary.service
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  service: prismic.KeyTextField;
-
-  /**
-   * Skills field in *Services → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.primary.skills
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  skills: prismic.RichTextField;
-
-  /**
-   * Tools field in *Services → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: services.primary.tools
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  tools: prismic.RichTextField;
-}
-
-/**
- * Right variation for Services Slice
- *
- * - **API ID**: `right`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ServicesSliceRight = prismic.SharedSliceVariation<
-  "right",
-  Simplify<ServicesSliceRightPrimary>,
-  never
->;
-
-/**
- * Slice variation for *Services*
- */
-type ServicesSliceVariation = ServicesSliceDefault | ServicesSliceRight;
-
-/**
- * Services Shared Slice
- *
- * - **API ID**: `services`
- * - **Description**: Services
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type ServicesSlice = prismic.SharedSlice<
-  "services",
-  ServicesSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -675,6 +702,11 @@ declare module "@prismicio/client" {
       AboutSliceDefaultPrimary,
       AboutSliceVariation,
       AboutSliceDefault,
+      AboutSectionSlice,
+      AboutSectionSliceDefaultPrimary,
+      AboutSectionSliceDefaultItem,
+      AboutSectionSliceVariation,
+      AboutSectionSliceDefault,
       LandingSlice,
       LandingSliceDefaultPrimary,
       LandingSliceVariation,
@@ -684,12 +716,6 @@ declare module "@prismicio/client" {
       SelectedWorksSliceDefaultItem,
       SelectedWorksSliceVariation,
       SelectedWorksSliceDefault,
-      ServicesSlice,
-      ServicesSliceDefaultPrimary,
-      ServicesSliceRightPrimary,
-      ServicesSliceVariation,
-      ServicesSliceDefault,
-      ServicesSliceRight,
     };
   }
 }
