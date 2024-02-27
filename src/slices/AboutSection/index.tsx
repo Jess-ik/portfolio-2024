@@ -22,14 +22,14 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 	const container = useRef(null);
 	const imageContainer = useRef(null);
 
-  const [selectedService, setSelectedService] = useState<number | null>(null);
-  
-  // GSAP ANIMATION
+	const [selectedService, setSelectedService] = useState<number | null>(null);
+
+	// GSAP ANIMATION
 	gsap.registerPlugin(ScrollTrigger);
 
 	// Anim setup
 	useEffect(() => {
-		ScrollTrigger.batch(".skill", {
+		ScrollTrigger.batch([".skill", ".aboutAnim"], {
 			onEnter: (elements) => {
 				gsap.fromTo(
 					elements,
@@ -49,7 +49,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 			},
 			once: true,
 		});
-		ScrollTrigger.batch(".tool", {
+		ScrollTrigger.batch([".tool"], {
 			onEnter: (elements) => {
 				gsap.fromTo(
 					elements,
@@ -76,24 +76,24 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 		<section ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="mt-[100px]  relative px-32">
 			<div ref={imageContainer} className="image-container z-0 h-screen sticky  top-8 flex justify-center items-center">
 				<div className="w-[50vw] "></div>
-				<div className=" flex justify-center my-14 h-[800px] max-h-[75vh] ">
+				<div className="aboutAnim flex justify-center my-14 h-[800px] max-h-[75vh] ">
 					{selectedService !== null ? (
-						<Image src={slice.items[selectedService].service_image.url} alt="truc" height="155" width={(1550* 10) / 31} className="rounded-full  object-cover" />
+						<Image src={slice.items[selectedService].service_image.url} alt="truc" height="155" width={(1550 * 10) / 31} className="rounded-full  object-cover" />
 					) : (
-						<PrismicNextImage field={slice.primary.about_image} height="155" width={(1550* 10) / 31} className="rounded-full  object-cover" /> // Replace with your placeholder component or image
+						<PrismicNextImage field={slice.primary.about_image} height="155" width={(1550 * 10) / 31} className="rounded-full  object-cover" /> // Replace with your placeholder component or image
 					)}{" "}
 				</div>
 			</div>
-			<div onMouseOver={() => {
-						setSelectedService(null);
-					}} className="container absolute top-[25vh]   flex  flex-col justify-between gap-4 ">
+			<div
+				onMouseOver={() => {
+					setSelectedService(null);
+				}}
+				className="container absolute top-[25vh]   flex  flex-col justify-between gap-4 ">
 				<div className=" h-full w-1/3 flex flex-col justify-center gap-4">
-					<h2 className="text-[28px]">{slice.primary.heading}</h2>
-					<p className="text-[20px] leading-10 text-grey pb-4">{slice.primary.paragraph_01}</p>
-          <p className="text-[20px] font-light leading-10 text-grey pb-4">{slice.primary.paragraph_02}</p>
-          <Button field={slice.primary.button_link} >
-          {slice.primary.button_text}
-						</Button>
+					<h2 className="text-[28px] aboutAnim">{slice.primary.heading}</h2>
+					<p className="text-[20px] leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_01}</p>
+					<p className="text-[20px] font-light leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_02}</p>
+					<Button field={slice.primary.button_link}>{slice.primary.button_text}</Button>
 				</div>
 			</div>
 
