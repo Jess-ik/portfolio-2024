@@ -3,8 +3,16 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: "https",
-                hostname: "picsum.photos",
+                protocol: 'http',
+                hostname: 'openweathermap.org',
+            },
+            {
+                protocol: 'https',
+                hostname: 'picsum.photos',
+            },
+            {
+                protocol: 'https',
+                hostname: 'images.prismic.io',
             },
         ],
     },

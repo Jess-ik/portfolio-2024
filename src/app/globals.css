@@ -16,6 +16,7 @@ body {
 
 header {
     color: theme('colors.light');
+    z-index: 1000;
 }
 
 
@@ -50,6 +51,7 @@ header {
 /* NAV ANIM */
 .link-effect {
     overflow: hidden;
+   
 }
 
 .link-effect a {
@@ -57,6 +59,7 @@ header {
     padding: 20px;
     height: 1em;
     font-weight: 300;
+    
 }
 
 .link-effect a span {
@@ -77,11 +80,24 @@ header {
     transform: translateY(-100%);
 }
 
-/* GALLERY */
+.local li {
+    position: relative;
+    
+    height: 50px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
 
+.local li:not(:last-child)::after {
+    content: '•'; /* Bullet point character */
 
-  
  
+    color: theme('colors.light');
+  }
+
+/* SERVICES */
+
 
 
 
