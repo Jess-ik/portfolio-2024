@@ -18,7 +18,7 @@ export type AboutProps = SliceComponentProps<Content.AboutSlice>;
  */
 const About = ({ slice }: AboutProps): JSX.Element => {
 	return (
-    <section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="pb-32 pt-32">
+    <section id="about" data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="pb-32 pt-32">
       <h2 className=" font-soria text-[4vw] px-14 pb-14">About</h2>
 			<div className="flex flex-col max-w-6xl mx-auto items-center justify-center">
 				<Parallax speed={1} className="self-start">
@@ -43,7 +43,7 @@ const About = ({ slice }: AboutProps): JSX.Element => {
         </Parallax> 
         
       </div>
-      <h2 className=" font-soria text-[4vw] px-14 py-32">Skills</h2>
+      {/* <h2 className=" font-soria text-[4vw] px-14 py-32">Skills</h2> */}
 		</section>
 	);
 };
