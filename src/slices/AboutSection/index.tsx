@@ -28,7 +28,8 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 	gsap.registerPlugin(ScrollTrigger);
 
 	// Anim setup
-	useEffect(() => {
+  useEffect(() => {
+    //translate Y effect
 		ScrollTrigger.batch([".skill", ".aboutAnim"], {
 			onEnter: (elements) => {
 				gsap.fromTo(
@@ -48,7 +49,8 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 				);
 			},
 			once: true,
-		});
+    });
+    //scalling effect
 		ScrollTrigger.batch([".tool"], {
 			onEnter: (elements) => {
 				gsap.fromTo(
@@ -73,30 +75,32 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 	}, []);
 
 	return (
-		<section ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="mt-[100px]  relative px-32">
-			<div ref={imageContainer} className="image-container z-0 h-screen sticky  top-8 flex justify-center items-center">
+		<section ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="relative  pt-[100px]  bg-beige   px-32">
+			{/* PILL IMAGE */}
+			<div ref={imageContainer} className="image-container  h-screen sticky  top-0 flex justify-center items-center">
 				<div className="w-[50vw] "></div>
-				<div className="aboutAnim flex justify-center my-14 h-[800px] max-h-[75vh] ">
+				<div className="aboutAnim pill-container flex justify-center h-[80%]  ">
 					{selectedService !== null ? (
-						<Image src={slice.items[selectedService].service_image.url} alt="truc" height="155" width={(1550 * 10) / 31} className="rounded-full  object-cover" />
+						<Image src={slice.items[selectedService]?.service_image?.url ?? ""} alt={slice.items[selectedService]?.service_image?.alt ?? ""} height={155} width={(1550 * 10) / 31} className="rounded-full object-cover" layout="responsive" />
 					) : (
-						<PrismicNextImage field={slice.primary.about_image} height="155" width={(1550 * 10) / 31} className="rounded-full  object-cover" /> // Replace with your placeholder component or image
+						<PrismicNextImage field={slice.primary.about_image} className="rounded-full  object-cover" sizes="33vw" imgixParams={{ auto: "format" }} /> // Replace with your placeholder component or image
 					)}{" "}
 				</div>
 			</div>
+			{/* ABOUT ME */}
 			<div
 				onMouseOver={() => {
 					setSelectedService(null);
 				}}
-				className="container absolute top-[25vh]   flex  flex-col justify-between gap-4 ">
-				<div className=" h-full w-1/3 flex flex-col justify-center gap-4">
+				className="container absolute  top-24 h-screen  flex  flex-col justify-between gap-4 ">
+				<div className=" h-full w-1/3  flex flex-col justify-center gap-4">
 					<h2 className="text-[28px] aboutAnim">{slice.primary.heading}</h2>
 					<p className="text-[20px] leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_01}</p>
 					<p className="text-[20px] font-light leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_02}</p>
 					<Button field={slice.primary.button_link}>{slice.primary.button_text}</Button>
 				</div>
 			</div>
-
+			{/* SERVICES */}
 			{slice.items.map((item, index) => (
 				<div
 					key={index}
@@ -105,19 +109,21 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 					}}
 					className="service-container cursor-pointer w-screen h-[80vh] pt-[20vh]  flex flex-col justify-start relative">
 					<h3 className="font-soria text-[100px] uppercase max-w-xl leading-[6rem]">{item.service}</h3>
+					{/* SKILLS */}
 					<ul className="flex gap-6 uppercase">
 						{Array.isArray(item.skills) &&
 							item.skills.map((skill, skillIndex) => (
 								<li key={skillIndex} className="skill">
-									{skill?.text}
+									{skill && "text" in skill ? skill.text : null}
 								</li>
 							))}
 					</ul>
+					{/* TOOLS */}
 					<ul className="flex gap-6 uppercase">
 						{Array.isArray(item.tools) &&
 							item.tools.map((tool, toolIndex) => (
 								<li key={toolIndex} className="tool">
-									<i>{getIconComponent(tool?.text)}</i>
+									{tool && "text" in tool ? <i>{getIconComponent(tool.text)}</i> : null}
 								</li>
 							))}
 					</ul>
