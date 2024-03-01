@@ -21,6 +21,14 @@
           "placeholder_false": "false"
         }
       },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "",
+          "options": ["Design", "Development"]
+        }
+      },
       "hero_image": {
         "type": "Image",
         "config": {
@@ -43,12 +51,11 @@
           "placeholder": ""
         }
       },
-      "category": {
-        "type": "Select",
+      "project_service": {
+        "type": "Text",
         "config": {
-          "label": "Category",
-          "placeholder": "",
-          "options": ["Design", "Development"]
+          "label": "Project Service",
+          "placeholder": ""
         }
       },
       "slices": {

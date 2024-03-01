@@ -6,7 +6,10 @@
 
 
 
-html{    background-color: theme('colors.beige');}
+html {
+    background-color: theme('colors.beige');
+}
+
 body {
     @apply font-jost;
     color: theme('colors.dark');
@@ -51,7 +54,7 @@ header {
 /* NAV ANIM */
 .link-effect {
     overflow: hidden;
-   
+
 }
 
 .link-effect a {
@@ -59,7 +62,7 @@ header {
     padding: 20px;
     height: 1em;
     font-weight: 300;
-    
+
 }
 
 .link-effect a span {
@@ -82,26 +85,71 @@ header {
 
 .local li {
     position: relative;
-    
+
     height: 50px;
     display: flex;
     align-items: center;
     gap: 10px;
-  }
+}
 
 .local li:not(:last-child)::after {
-    content: '•'; /* Bullet point character */
+    content: '•';
+    /* Bullet point character */
 
- 
+
     color: theme('colors.light');
-  }
+}
 
 /* SERVICES */
 
-.pill-container, .pill-container img {
+.pill-container,
+.pill-container img {
     aspect-ratio: 65/100;
 }
 
 
+/* WORKS */
+.filters span {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 350;
+
+}
+
+
+
+.cover {
+    -webkit-clip-path: inset(0 round 10px);
+    clip-path: inset(0 round 10px);
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.cover img {
+    overflow: hidden;
+    position: relative;
+    -webkit-clip-path: inset(0);
+    clip-path: inset(0);
+    -webkit-transition: all .3s;
+    -o-transition: all .3s;
+    transition: all .3s;
+}
+
+.cover:hover {
+    -webkit-clip-path: inset(5px 10px round 10px);
+    clip-path: inset(5px 10px round 10px);
+
+}
+
+.cover:hover img {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+ .cover:not(:hover) img {
+    filter: grayscale(100%);
+}
 
  

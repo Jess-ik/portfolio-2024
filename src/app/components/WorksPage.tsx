@@ -7,6 +7,7 @@ import { PrismicLink } from "@prismicio/react";
 import { motion, AnimatePresence } from "framer-motion";
 
 export default function WorksPage() {
+	// Fetch Page data and Projects
 	const [page, setPage] = useState<WorksDocument<string> | null>(null);
 	const [projects, setProjects] = useState<ProjectPageDocument<string>[]>([]);
 	useEffect(() => {
@@ -17,10 +18,10 @@ export default function WorksPage() {
 			setPage(page);
 			setProjects(projects);
 		};
-
 		fetchData();
 	}, []);
 
+	// Handle Filtering
 	const [filteredWorks, setFilteredWorks] = useState<ProjectPageDocument<string>[]>([]);
 	const [activeFilter, setActiveFilter] = useState<string>("");
 
@@ -32,32 +33,38 @@ export default function WorksPage() {
 		const filtering = projects?.filter((project) => project.data.category?.includes(activeFilter));
 		setFilteredWorks(filtering || []);
 	}, [activeFilter, projects, setFilteredWorks]);
-	console.log(activeFilter);
+
 	return (
-		<section className="pt-[180px] max-w-[1440px] mx-auto ">
-			<a href="">Back to all projects</a>
-			<h1 className="font-soria text-7xl w-1/3">{page ? page.data.page_title : ""}</h1>
-			{/* FILTER */}
-			<div className="flex gap-8">
-				<span onClick={() => setActiveFilter("*")} data-filter="*" className={activeFilter === "*" || activeFilter === "" ? "text-dark" : "text-grey font-light"}>
-					ALL
-				</span>
-				<span onClick={() => setActiveFilter("Design")} data-filter="Design" className={activeFilter === "Design" ? "text-dark" : "text-grey font-light"}>
-					DESIGN
-				</span>
-				<span onClick={() => setActiveFilter("Development")} data-filter="Development" className={activeFilter === "Development" ? "text-dark" : "text-grey font-light"}>
-					DEVELOPMENT
-				</span>
+		<section className="pt-[200px] max-w-[1440px] mx-auto ">
+			<div className="flex flex-col gap-16">
+				<h1 className="font-soria text-7xl w-1/3">{page ? page.data.page_title : ""}</h1>
+				{/* FILTER */}
+				<div className="filters flex gap-8">
+					<span onClick={() => setActiveFilter("*")} data-filter="*" className={activeFilter === "*" || activeFilter === "" ? "text-blue" : "text-grey "}>
+						ALL
+					</span>
+					<span onClick={() => setActiveFilter("Design")} data-filter="Design" className={activeFilter === "Design" ? "text-blue" : "text-grey "}>
+						DESIGN
+					</span>
+					<span onClick={() => setActiveFilter("Development")} data-filter="Development" className={activeFilter === "Development" ? "text-blue" : "text-grey "}>
+						DEVELOPMENT
+					</span>
+				</div>
 			</div>
-			<motion.div layout className="grid grid-cols-3">
+			<motion.div layout className="mt-8 mb-16 grid grid-cols-3 gap-8">
 				<AnimatePresence>
 					{/* Display Works slices = WorksGallery */}
 					{filteredWorks.map((project, index) => {
 						return (
 							<PrismicLink key={index} document={project}>
-								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout className="relative w-[560px] overflow-hidden flex flex-col gap-5">
-									<PrismicNextImage width={582} height={472} field={project.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "4:3", fit: "crop" }} />
-									<h2 className="font-light text-xl text-beige">{project.data.project_name}</h2>
+								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout className="relative w-full overflow-hidden flex flex-col gap-5">
+									<div className="cover ">
+										<PrismicNextImage width={582} height={472} field={project.data.hero_image} className="cover rounded-2xl" imgixParams={{ ar: "4:3", fit: "crop" }} />
+									</div>
+									<div className="flex flex-col ">
+										<h2 className="uppercase text-blue font-medium text-xl ">{project.data.project_name}</h2>
+										<h2 className="font-light text-lg text-dark">{project.data.project_service}</h2>
+									</div>
 								</motion.div>
 							</PrismicLink>
 						);

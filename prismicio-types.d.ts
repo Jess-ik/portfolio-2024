@@ -166,6 +166,17 @@ interface ProjectPageDocumentData {
   selected: prismic.BooleanField;
 
   /**
+   * Category field in *Project Page*
+   *
+   * - **Field Type**: Select
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.category
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#select
+   */
+  category: prismic.SelectField<"Design" | "Development">;
+
+  /**
    * Hero Image field in *Project Page*
    *
    * - **Field Type**: Image
@@ -199,15 +210,15 @@ interface ProjectPageDocumentData {
   project_subtitle: prismic.KeyTextField;
 
   /**
-   * Category field in *Project Page*
+   * Project Service field in *Project Page*
    *
-   * - **Field Type**: Select
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: project_page.category
+   * - **API ID Path**: project_page.project_service
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#select
+   * - **Documentation**: https://prismic.io/docs/field#key-text
    */
-  category: prismic.SelectField<"Design" | "Development">;
+  project_service: prismic.KeyTextField;
 
   /**
    * Slice Zone field in *Project Page*

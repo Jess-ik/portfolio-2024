@@ -18,6 +18,7 @@ const config: Config = {
         'grey': '#62666F',
         'light-grey': '#D6D8E2',
         'mustard': '#BA9759',
+        'blue': '#8091ef',
         'beige': '#EEE4E0',
         'light-beige': '#EEEAE8',
         'light': '#F9F7F7',
