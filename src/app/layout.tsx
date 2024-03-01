@@ -4,11 +4,12 @@ import "./globals.css";
 import clsx from "clsx";
 import { Jost } from "next/font/google";
 import Soria from "next/font/local";
-import { createClient } from "@/prismicio";
+import { createClient, repositoryName } from "@/prismicio";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ScrollTop from "./components/ScrollTop";
 import SmoothScroll from "./components/SmoothScroll";
+import { PrismicPreview } from "@prismicio/next";
 
 // FONTS
 const jost = Jost({
@@ -53,7 +54,8 @@ export default function RootLayout({
 					{children}
 					<ScrollTop />
 					<Footer />
-				
+					<PrismicPreview repositoryName={repositoryName} />
+
 			</body>
 		</html>
 	);
