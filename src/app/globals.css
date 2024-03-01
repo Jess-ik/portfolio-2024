@@ -98,6 +98,9 @@ header {
 
 /* SERVICES */
 
+.pill-container, .pill-container img {
+    aspect-ratio: 65/100;
+}
 
 
 

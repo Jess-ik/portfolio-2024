@@ -75,7 +75,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 	}, []);
 
 	return (
-		<section ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="relative  pt-[100px]  bg-beige   px-32">
+		<section id="about" ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="relative  pt-[100px]  bg-beige   px-32">
 			{/* PILL IMAGE */}
 			<div ref={imageContainer} className="image-container  h-screen sticky  top-0 flex justify-center items-center">
 				<div className="w-[50vw] "></div>
