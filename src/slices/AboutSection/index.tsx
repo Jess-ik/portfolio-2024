@@ -28,8 +28,8 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 	gsap.registerPlugin(ScrollTrigger);
 
 	// Anim setup
-  useEffect(() => {
-    //translate Y effect
+	useEffect(() => {
+		//translate Y effect
 		ScrollTrigger.batch([".skill", ".aboutAnim"], {
 			onEnter: (elements) => {
 				gsap.fromTo(
@@ -49,8 +49,8 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 				);
 			},
 			once: true,
-    });
-    //scalling effect
+		});
+		//scalling effect
 		ScrollTrigger.batch([".tool"], {
 			onEnter: (elements) => {
 				gsap.fromTo(
@@ -101,34 +101,36 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 				</div>
 			</div>
 			{/* SERVICES */}
-			{slice.items.map((item, index) => (
-				<div
-					key={index}
-					onMouseOver={() => {
-						setSelectedService(index);
-					}}
-					className="service-container cursor-pointer w-screen h-[80vh] pt-[20vh]  flex flex-col justify-start relative">
-					<h3 className="font-soria text-[100px] uppercase max-w-xl leading-[6rem]">{item.service}</h3>
-					{/* SKILLS */}
-					<ul className="flex gap-6 uppercase">
-						{Array.isArray(item.skills) &&
-							item.skills.map((skill, skillIndex) => (
-								<li key={skillIndex} className="skill">
-									{skill && "text" in skill ? skill.text : null}
-								</li>
-							))}
-					</ul>
-					{/* TOOLS */}
-					<ul className="flex gap-6 uppercase">
-						{Array.isArray(item.tools) &&
-							item.tools.map((tool, toolIndex) => (
-								<li key={toolIndex} className="tool">
-									{tool && "text" in tool ? <i>{getIconComponent(tool.text)}</i> : null}
-								</li>
-							))}
-					</ul>
-				</div>
-			))}
+			<div id="services">
+				{slice.items.map((item, index) => (
+					<div
+						key={index}
+						onMouseOver={() => {
+							setSelectedService(index);
+						}}
+						className="service-container cursor-pointer w-screen h-[80vh] pt-[20vh]  flex flex-col justify-start relative">
+						<h3 className="font-soria text-[100px] uppercase max-w-xl leading-[6rem]">{item.service}</h3>
+						{/* SKILLS */}
+						<ul className="flex gap-6 uppercase">
+							{Array.isArray(item.skills) &&
+								item.skills.map((skill, skillIndex) => (
+									<li key={skillIndex} className="skill">
+										{skill && "text" in skill ? skill.text : null}
+									</li>
+								))}
+						</ul>
+						{/* TOOLS */}
+						<ul className="flex gap-6 uppercase">
+							{Array.isArray(item.tools) &&
+								item.tools.map((tool, toolIndex) => (
+									<li key={toolIndex} className="tool">
+										{tool && "text" in tool ? <i>{getIconComponent(tool.text)}</i> : null}
+									</li>
+								))}
+						</ul>
+					</div>
+				))}
+			</div>
 		</section>
 	);
 };

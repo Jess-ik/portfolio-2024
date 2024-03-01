@@ -40,6 +40,24 @@
 							"value": "private",
 							"type": "Text"
 						}
+					],
+					[
+						"code_link",
+						{
+							"__TYPE__": "LinkContent",
+							"value": {
+								"__TYPE__": "ExternalLink",
+								"url": "http://twitter.com"
+							}
+						}
+					],
+					[
+						"code_link_text",
+						{
+							"__TYPE__": "FieldContent",
+							"value": "water",
+							"type": "Text"
+						}
 					]
 				]
 			}

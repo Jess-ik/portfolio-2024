@@ -893,6 +893,26 @@ export interface ProjectInfoSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   link_text: prismic.KeyTextField;
+
+  /**
+   * Code Link field in *ProjectInfo → Items*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_info.items[].code_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  code_link: prismic.LinkField;
+
+  /**
+   * Code Link Text field in *ProjectInfo → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_info.items[].code_link_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  code_link_text: prismic.KeyTextField;
 }
 
 /**

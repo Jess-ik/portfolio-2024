@@ -41,6 +41,21 @@
             "label": "Link Text",
             "placeholder": ""
           }
+        },
+        "code_link": {
+          "type": "Link",
+          "config": {
+            "label": "Code Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "code_link_text": {
+          "type": "Text",
+          "config": {
+            "label": "Code Link Text",
+            "placeholder": ""
+          }
         }
       }
     }

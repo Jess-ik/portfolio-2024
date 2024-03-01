@@ -10,7 +10,6 @@ import LocalInfo from "./LocalInfo";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-
 export default function Footer() {
 	// State pour stocker les données
 	const [settings, setSettings] = useState<SettingsDocument<string> | null>(null);
@@ -70,7 +69,7 @@ export default function Footer() {
 
 					<p className="link-effect animItem ml-[-20px]">
 						<a href={`mailto:${settings?.data.button_text}`}>
-							<span data-hover={settings?.data.button_text} className="font-extralight text-3xl">
+							<span data-hover={settings?.data.button_text} className="font-extralight text-blue text-3xl">
 								{settings?.data.button_text}
 							</span>
 						</a>
