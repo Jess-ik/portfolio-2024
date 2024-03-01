@@ -1,5 +1,5 @@
 "use client";
-import LogoFull from "@/app/components/LogoFull";
+import LogoDesktop from "@/app/components/LogoDesktop";
 import LogoMobile from "@/app/components/LogoMobile";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
@@ -37,7 +37,7 @@ const Landing = ({ slice }: LandingProps): JSX.Element => {
 			<div className=" h-screen w-screen bg-beige flex flex-col gap-8 items-center justify-center text">
 				<motion.h1 className="hidden md:block font-soria text-[10vw] text-center " custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
 					<span className="visually-hidden">{slice.primary.title}</span>
-					<LogoFull />
+					<LogoDesktop />
 				</motion.h1>
 				<motion.h1 className=" md:hidden font-soria text-[10vw] text-center " custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
 					<span className="visually-hidden">{slice.primary.title}</span>

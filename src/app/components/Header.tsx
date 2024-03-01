@@ -4,10 +4,11 @@ import { useEffect, useState } from "react";
 import { SettingsDocument } from "../../../prismicio-types";
 import { PrismicNextLink } from "@prismicio/next";
 import Link from "next/link";
-import Logo from "./Logo";
+
 
 import { motion } from "framer-motion";
 import { getIconComponent } from "./Icons";
+import LogoNav from "./LogoNav";
 
 const item = {
 	initial: {
@@ -58,10 +59,10 @@ export default function Header() {
 				<motion.div variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
 					<Link href="/" className="logo-effect flex items-center" onClick={handleLinkClick}>
 						<div className="md:hidden">
-							<Logo fillColor="#1E2632" />
+							<LogoNav fillColor="#1E2632" />
 						</div>
 						<div className="hidden md:flex">
-							<Logo />
+							<LogoNav />
 						</div>
 						<span data-hover="Jessica Louvel" className=" tracking-[.01rem]">
 							Jessica Louvel

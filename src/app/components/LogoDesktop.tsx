@@ -1,6 +1,6 @@
 import React from "react";
 
-function Icon() {
+function LogoDesktop() {
   return (
       <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="555" height="80" fill="none">
           <title id="page_title">Jessica Louvel</title>
@@ -16,4 +16,4 @@ function Icon() {
   );
 }
 
-export default Icon;
+export default LogoDesktop;

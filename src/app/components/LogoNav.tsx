@@ -1,4 +1,4 @@
-function Logo({fillColor = "#d6d8e2"}: {fillColor?: string}) {
+function LogoNav({fillColor = "#d6d8e2"}: {fillColor?: string}) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="49" fill="none">
       <path
@@ -9,4 +9,4 @@ function Logo({fillColor = "#d6d8e2"}: {fillColor?: string}) {
   );
 }
 
-export default Logo;
+export default LogoNav;
