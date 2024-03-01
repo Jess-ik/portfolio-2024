@@ -1,4 +1,5 @@
 export const icons: { [key: string]: JSX.Element } = {
+	MobileMenu: <MobileMenuIcon />,
 	Photoshop: <PhotoshopIcon />,
 };
 
@@ -6,6 +7,19 @@ export function getIconComponent(iconName: string): JSX.Element | null {
 	return icons[iconName] || null;
 }
 
+function MobileMenuIcon() {
+	return (
+	  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+		<path
+		  fill="#d6d8e2"
+		  fillRule="evenodd"
+		  d="M3.6 6a1.2 1.2 0 011.2-1.2h14.4a1.2 1.2 0 010 2.4H4.8A1.2 1.2 0 013.6 6zm0 6a1.2 1.2 0 011.2-1.2h14.4a1.2 1.2 0 110 2.4H4.8A1.2 1.2 0 013.6 12zm0 6a1.2 1.2 0 011.2-1.2h14.4a1.2 1.2 0 110 2.4H4.8A1.2 1.2 0 013.6 18z"
+		  clipRule="evenodd"
+		></path>
+	  </svg>
+	);
+}
+  
 function PhotoshopIcon() {
 	return (
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
@@ -20,4 +34,11 @@ function PhotoshopIcon() {
 		</svg>
 	);
 }
+
+
+
+
+
+
+
 
