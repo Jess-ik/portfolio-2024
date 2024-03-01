@@ -109,7 +109,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 							setSelectedService(index);
 						}}
 						className="service-container cursor-pointer w-screen h-[80vh] pt-[20vh]  flex flex-col justify-start relative">
-						<h3 className="font-soria text-[100px] uppercase max-w-xl leading-[6rem]">{item.service}</h3>
+						<h3 className=" text-[100px] font-semibold uppercase max-w-xl leading-[6rem]">{item.service}</h3>
 						{/* SKILLS */}
 						<ul className="flex gap-6 uppercase">
 							{Array.isArray(item.skills) &&

@@ -18,7 +18,7 @@ const ProjectInfo = ({ slice }: ProjectInfoProps): JSX.Element => {
 					<div key={index} className="flex flex-col gap-5 ">
 						<h3 className="text-sm uppercase tracking-wide">{item.label}</h3>
 						<div className="flex gap-8 items-center h-full ">
-							{item.text && <p className="text-xl ">{item.text} & development</p>}
+							{item.text && <p className="text-xl font-[350] ">{item.text} & development</p>}
 							{item.link && item.link_text && <Button field={item.link}>{item.link_text}</Button>}
 							{item.code_link && item.code_link_text && <Button field={item.code_link}>{item.code_link_text}</Button>}
 						</div>
