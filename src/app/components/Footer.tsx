@@ -57,7 +57,7 @@ export default function Footer() {
 	}, []);
 
 	return (
-		<footer className=" px-14 py-8 w-screen bg-dark relative ">
+		<footer id="contact" className=" px-14 py-8 w-screen bg-dark relative ">
 			<div className="pt-28 flex flex-col gap-24 text-light-grey">
 				{/* TOP FOOTER */}
 				<div className="flex flex-col gap-8">
