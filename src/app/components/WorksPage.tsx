@@ -57,7 +57,7 @@ export default function WorksPage() {
 					{filteredWorks.map((project, index) => {
 						return (
 							<PrismicLink key={index} document={project}>
-								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout className="relative w-full overflow-hidden flex flex-col gap-5">
+								<motion.div animate={{ opacity: 1 }} initial={{ opacity: 0 }} exit={{ opacity: 0 }} layout className="work-card relative w-full overflow-hidden flex flex-col gap-5">
 									<div className="cover ">
 										<PrismicNextImage width={582} height={472} field={project.data.hero_image} className="cover rounded-2xl" imgixParams={{ ar: "4:3", fit: "crop" }} />
 									</div>

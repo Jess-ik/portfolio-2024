@@ -7,9 +7,6 @@ import { PrismicLink, SliceComponentProps } from "@prismicio/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ProjectPageDocument } from "../../../prismicio-types";
-import { ProjectCard } from "@/app/components/ProjectCard";
-import prismic from "@prismicio/client";
-import SelectedGallery from "@/app/components/SelectedGallery";
 
 /** Props for `SelectedWorks` */
 export type SelectedWorksProps = SliceComponentProps<Content.SelectedWorksSlice>;
@@ -35,7 +32,6 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 
 		fetchData();
 	}, [slice.items]);
-
 
 	// GSAP ANIMATION
 	gsap.registerPlugin(ScrollTrigger);
@@ -79,14 +75,14 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 			pin.kill();
 		};
 	}, []);
-	
+
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
 			<section ref={triggerRef} className="h-[300vh] bg-dark">
 				<div className="sticky top-0 flex flex-col justify-center h-screen overflow-x-hidden">
 					<div className="flex justify-between items-center px-14 pb-14">
 						<h2 className="text-light  font-soria text-[4vw]">{slice.primary.section_title}</h2>
-						<a className="text-light-grey underline font-light hover:text-grey transition-all cur" href="">
+						<a className="hover:text-light-grey  font-light text-grey transition-all cur" href="/works">
 							See all works
 						</a>
 					</div>
@@ -95,11 +91,17 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 						{selectedWorks.map((item, index) => {
 							if (item && item.data.selected) {
 								return (
-									
-									<div key={index} className="relative w-[560px] overflow-hidden flex flex-col gap-5">
-										<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "4:3", fit: "crop" }} />
-										<h2 className="font-light text-xl text-beige">{item.data.project_name}</h2>
-									</div>
+									<PrismicLink key={index} document={item}>
+										<div key={index} className="selected-card relative w-[560px] overflow-hidden flex flex-col gap-5">
+											<div className="cover">
+												<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "4:3", fit: "crop" }} />
+												<div className="hover flex justify-center items-center">
+													<button className="px-6 py-4 bg-blue hover:bg-grey rounded-lg transition-all duration-300">View project</button>
+												</div>
+											</div>
+											<h2 className="font-light text-xl text-beige">{item.data.project_name}</h2>
+										</div>
+									</PrismicLink>
 								);
 							}
 							return null;
