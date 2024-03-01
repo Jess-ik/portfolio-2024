@@ -75,9 +75,9 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 	}, []);
 
 	return (
-		<section id="about" ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="relative max-w-[1800px] mx-auto  pt-[100px] bg-beige  px-32">
-			{/* PILL IMAGE */}
-			<div ref={imageContainer} className="image-container overflow-x-hidden  h-screen sticky  top-0 flex justify-center items-center">
+		<section id="about" ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="relative  max-w-[1800px] mx-auto pt-16 md:pt-[100px] bg-beige  md:px-32">
+			{/* PILL IMAGE DESKTOP */}
+			<div ref={imageContainer} className="hidden md:flex image-container overflow-x-hidden  h-screen sticky  top-0  justify-center items-center">
 				<div className="w-[50vw] "></div>
 				<div className="aboutAnim pill-container flex justify-center h-[80%]  ">
 					{selectedService !== null ? (
@@ -87,13 +87,18 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 					)}{" "}
 				</div>
 			</div>
+			{/* PILL IMAGE MOBILE */}
+			<div className="md:hidden w-[90vw] h-[200px]  mx-auto">
+				<PrismicNextImage field={slice.primary.about_image} className=" rounded-full h-full object-cover" width={533} height={300} imgixParams={{ar:"16:9", auto: "format" }} /> 
+
+			</div>
 			{/* ABOUT ME */}
 			<div
 				onMouseOver={() => {
 					setSelectedService(null);
 				}}
-				className="container absolute w-fit  top-24 h-screen  flex  flex-col justify-between gap-4 ">
-				<div className=" h-full w-1/3  flex flex-col justify-center gap-4">
+				className="px-8 md:px-0 mt-16 md:mt-0 container md:absolute md:w-fit  md:top-24 md:h-screen  flex  flex-col justify-between gap-4 ">
+				<div className="h-full md:w-1/3  flex flex-col justify-center gap-4">
 					<h2 className="text-[28px] uppercase aboutAnim">{slice.primary.heading}</h2>
 					<p className="text-[20px] leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_01}</p>
 					<p className="text-[20px] font-light leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_02}</p>
@@ -108,8 +113,8 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 						onMouseOver={() => {
 							setSelectedService(index);
 						}}
-						className="service-container cursor-pointer  h-[80vh] pt-[20vh]  flex flex-col justify-start relative">
-						<h3 className=" text-[100px] font-semibold uppercase max-w-xl leading-[6rem]">{item.service}</h3>
+						className="service-container mx-8 md:mx-0 px-8 md:px-0 my-16 md:my-0 py-32 md:py-0 cursor-pointer shadow-md md:shadow-none bg-light/50 md:bg-transparent  rounded-xl  md:h-[80vh] md:pt-[20vh]  flex flex-col justify-start relative">
+						<h3 className="text-4xl md:text-[100px] font-semibold uppercase w-fit md:max-w-xl  md:leading-[6rem]">{item.service}</h3>
 						{/* SKILLS */}
 						<ul className="flex gap-6 uppercase">
 							{Array.isArray(item.skills) &&

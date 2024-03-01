@@ -80,19 +80,19 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
 			<section ref={triggerRef} className="h-[300vh] bg-dark">
 				<div className="sticky top-0 flex flex-col justify-center h-screen overflow-x-hidden">
-					<div className="flex justify-between items-center px-14 pb-14">
-						<h2 className="text-light  font-soria text-[4vw]">{slice.primary.section_title}</h2>
+					<div className="flex flex-col md:flex-row gap-8 justify-between items-center px-8 md:px-14 pb-14">
+						<h2 className="text-light text-3xl md:text-4xl">{slice.primary.section_title}</h2>
 						<a className="hover:text-light-grey  font-light text-grey transition-all cur" href="/works">
 							See all works
 						</a>
 					</div>
 
-					<div ref={galleryRef} className="relative pl-14 flex gap-4 w-fit ">
+					<div ref={galleryRef} className="relative pl-8 md:pl-14 flex gap-4 w-fit ">
 						{selectedWorks.map((item, index) => {
 							if (item && item.data.selected) {
 								return (
 									<PrismicLink key={index} document={item}>
-										<div key={index} className="selected-card relative w-[560px] overflow-hidden flex flex-col gap-5">
+										<div key={index} className="selected-card relative w-[300px] md:w-[560px] overflow-hidden flex flex-col gap-5">
 											<div className="cover">
 												<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "4:3", fit: "crop" }} />
 												<div className="hover flex justify-center items-center">

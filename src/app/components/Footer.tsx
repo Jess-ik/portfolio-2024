@@ -9,6 +9,7 @@ import LocalInfo from "./LocalInfo";
 
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import LogoNav from "./LogoNav";
 
 export default function Footer() {
 	// State pour stocker les données
@@ -56,19 +57,23 @@ export default function Footer() {
 	}, []);
 
 	return (
-		<footer id="contact" className=" px-14 py-8 w-screen bg-dark relative ">
-			<div className="pt-28 flex flex-col gap-24 text-light-grey">
+		<footer id="contact" className="px-8 md:px-14 py-8 w-screen bg-dark relative ">
+			<div className=" pt-28 flex flex-col gap-24 text-light-grey">
 				{/* TOP FOOTER */}
-				<div className="flex flex-col gap-8">
+				<div className=" flex flex-col items-center md:items-start gap-8">
 					<h3 className="font-light text-grey text-2xl  animItem">{settings?.data.question}</h3>
 
-					<div className="flex  gap-4 h-full  animItem">
+					<div className="hidden md:flex  gap-4 h-full  animItem">
 						<LogoBadge />
-						<h4 className="font-soria text-9xl">{settings?.data.cta}</h4>
+						<h4 className="font-soria text-6xl md:text-9xl">{settings?.data.cta}</h4>
+					</div>
+					<div className="md:hidden flex  gap-4 h-full  animItem">
+						<LogoNav fillColor="#D6D8E2" />
+						<h4 className="font-soria text-6xl md:text-9xl">{settings?.data.cta}</h4>
 					</div>
 
-					<p className="link-effect animItem ml-[-20px]">
-						<a href={`mailto:${settings?.data.button_text}`}>
+					<p className="link-effect animItem md:ml-[-20px]">
+						<a href={`mailto:${settings?.data.button_text}`} className="!p-0 md:!p-6">
 							<span data-hover={settings?.data.button_text} className="font-extralight text-blue text-3xl">
 								{settings?.data.button_text}
 							</span>
@@ -76,10 +81,10 @@ export default function Footer() {
 					</p>
 				</div>
 				{/* BOTTOM FOOTER */}
-				<div className="flex justify-between items-center font-light text-lg tracking-wide">
+				<div className="flex flex-col md:flex-row gap-8 md:justify-between items-center font-light text-lg tracking-wide">
 					{/* SOCIAL */}
 					<nav className="animItem">
-						<ul className="flex ml-[-20px]">
+						<ul className="flex md:ml-[-20px]">
 							{Array.isArray(settings?.data.social) &&
 								settings?.data.social.map(({ social_link, social_name }, index) => (
 									<li key={social_name} className="link-effect">

@@ -34,7 +34,7 @@ export type LandingProps = SliceComponentProps<Content.LandingSlice>;
 const Landing = ({ slice }: LandingProps): JSX.Element => {
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-			<div className=" h-screen w-screen bg-beige flex flex-col gap-8 items-center justify-center text">
+			<div className="h-screen w-screen bg-beige flex flex-col gap-8 items-center justify-center text">
 				<motion.h1 className="hidden md:block font-soria text-[10vw] text-center " custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
 					<span className="visually-hidden">{slice.primary.title}</span>
 					<LogoDesktop />
@@ -43,7 +43,7 @@ const Landing = ({ slice }: LandingProps): JSX.Element => {
 					<span className="visually-hidden">{slice.primary.title}</span>
 					<LogoMobile />
 				</motion.h1>
-				<motion.p className="max-w-xl text-center font-light md:text-xl leading-8" custom={2} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+				<motion.p className="px-8 max-w-xl text-center font-light md:text-xl leading-8" custom={2} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
 					{slice.primary.intro}
 				</motion.p>
 			</div>

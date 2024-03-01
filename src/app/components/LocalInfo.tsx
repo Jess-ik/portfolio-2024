@@ -41,7 +41,7 @@ export default function LocalInfo() {
 	
 
 	return (
-		<ul className="flex items-center animItem local gap-2.5">
+		<ul className="hidden md:flex items-center animItem local gap-2.5">
 			<li>Avignon, FR </li>
 			<li>{currentTime} </li>
 			<li>
