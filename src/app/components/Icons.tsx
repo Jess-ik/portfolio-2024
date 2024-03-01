@@ -1,5 +1,6 @@
 export const icons: { [key: string]: JSX.Element } = {
 	MobileMenu: <MobileMenuIcon />,
+	CloseIcon: <CloseIcon />,
 	Photoshop: <PhotoshopIcon />,
 };
 
@@ -11,9 +12,22 @@ function MobileMenuIcon() {
 	return (
 	  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
 		<path
-		  fill="#d6d8e2"
+		  fill="#1E2632"
 		  fillRule="evenodd"
 		  d="M3.6 6a1.2 1.2 0 011.2-1.2h14.4a1.2 1.2 0 010 2.4H4.8A1.2 1.2 0 013.6 6zm0 6a1.2 1.2 0 011.2-1.2h14.4a1.2 1.2 0 110 2.4H4.8A1.2 1.2 0 013.6 12zm0 6a1.2 1.2 0 011.2-1.2h14.4a1.2 1.2 0 110 2.4H4.8A1.2 1.2 0 013.6 18z"
+		  clipRule="evenodd"
+		></path>
+	  </svg>
+	);
+}
+
+function CloseIcon() {
+	return (
+		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+		<path
+		  fill="#1E2632"
+		  fillRule="evenodd"
+		  d="M5.152 5.152a1.2 1.2 0 011.696 0L12 10.303l5.152-5.151a1.2 1.2 0 111.696 1.696L13.697 12l5.151 5.152a1.2 1.2 0 01-1.696 1.696L12 13.697l-5.152 5.151a1.2 1.2 0 01-1.696-1.696L10.303 12 5.152 6.848a1.2 1.2 0 010-1.696z"
 		  clipRule="evenodd"
 		></path>
 	  </svg>

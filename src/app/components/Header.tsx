@@ -7,6 +7,7 @@ import Link from "next/link";
 import Logo from "./Logo";
 
 import { motion } from "framer-motion";
+import { getIconComponent } from "./Icons";
 
 const item = {
 	initial: {
@@ -38,20 +39,41 @@ export default function Header() {
 
 		fetchData();
 	}, []);
+
+	const [open, setOpen] = useState(false);
+
+	const handleClick = () => setOpen(!open);
+
+	const handleLinkClick = () => {
+		if (open) {
+			setOpen(false);
+		}
+	};
+
 	return (
-		<header className="px-8 md:px-14 py-4 w-screen md:fixed mix-blend-difference z-1000 ">
-			<div className="flex gap-4 items-center justify-between">
+		<header className={`fixed w-screen md:mix-blend-difference ${open ? "bg-beige md:hidden" : ""}`}>
+			{/* MAIN NAV */}
+			<div className="flex gap-4 items-center justify-between px-8 py-4">
+				{/* LOGO */}
 				<motion.div variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
 					<Link href="/" className="logo-effect flex items-center">
-						<Logo />
-
+						<div className="md:hidden">
+							<Logo fillColor="#1E2632" />
+						</div>
+						<div className="hidden md:flex">
+							<Logo />
+						</div>
 						<span data-hover="Jessica Louvel" className=" tracking-[.01rem]">
 							Jessica Louvel
 						</span>
 					</Link>
 				</motion.div>
-
-				<nav>
+				{/* MOBILE TOGGLE */}
+				<button className="md:hidden" onClick={handleClick} aria-label="Mobile menu">
+					{open ? <i>{getIconComponent("CloseIcon")}</i> : <i>{getIconComponent("MobileMenu")}</i>}
+				</button>
+				{/* SECOND DESKTOP NAV */}
+				<nav className="hidden md:flex">
 					<ul className="flex gap-4">
 						{settings?.data.navigation.map(({ link, link_name }, index) => (
 							<motion.li key={link_name} className="link-effect" variants={item} initial="initial" whileInView="animate" custom={index} viewport={{ once: true }}>
@@ -63,6 +85,18 @@ export default function Header() {
 					</ul>
 				</nav>
 			</div>
+			{/* SECOND MOBILE NAV */}
+			<nav className={open ? " flex w-screen h-screen justify-center bg-beige" : "hidden"}>
+				<ul className="flex flex-col mt-16 items-center text-center gap-6">
+					{settings?.data.navigation.map(({ link, link_name }, index) => (
+						<motion.li key={link_name} className="text-xl p-6 text-dark" variants={item} initial="initial" whileInView="animate" custom={index} viewport={{ once: true }}>
+							<PrismicNextLink field={link} onClick={handleClick}>
+								<span data-hover={link_name}>{link_name}</span>
+							</PrismicNextLink>
+						</motion.li>
+					))}
+				</ul>
+			</nav>
 		</header>
 	);
 }
