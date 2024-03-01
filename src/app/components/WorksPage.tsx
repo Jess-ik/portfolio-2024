@@ -35,7 +35,7 @@ export default function WorksPage() {
 	}, [activeFilter, projects, setFilteredWorks]);
 
 	return (
-		<section className="pt-[200px] max-w-[1440px] mx-auto ">
+		<section className="px-8 md:px-0 pt-16 md:pt-[200px] max-w-[1440px] mx-auto ">
 			<div className="flex flex-col gap-16">
 				<h1 className="font-soria text-7xl w-1/3">{page ? page.data.page_title : ""}</h1>
 				{/* FILTER */}
@@ -51,7 +51,7 @@ export default function WorksPage() {
 					</span>
 				</div>
 			</div>
-			<motion.div layout className="mt-8 mb-16 grid grid-cols-3 gap-8">
+			<motion.div layout className="mt-16 md:mt-8 mb-16 grid md:grid-cols-3 gap-8">
 				<AnimatePresence>
 					{/* Display Works slices = WorksGallery */}
 					{filteredWorks.map((project, index) => {

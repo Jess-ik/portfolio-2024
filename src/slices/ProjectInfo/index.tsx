@@ -13,10 +13,10 @@ export type ProjectInfoProps = SliceComponentProps<Content.ProjectInfoSlice>;
 const ProjectInfo = ({ slice }: ProjectInfoProps): JSX.Element => {
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className=" mt-24">
-			<div className="flex gap-32">
+			<div className="flex flex-col md:flex-row gap-16 md:gap-32">
 				{slice.items.map((item, index) => (
 					<div key={index} className="flex flex-col gap-5 ">
-						<h3 className="text-sm uppercase tracking-wide">{item.label}</h3>
+						<h3 className="text-sm text-blue md:border-none border-b-[1px] border-blue uppercase tracking-wide">{item.label}</h3>
 						<div className="flex gap-8 items-center h-full ">
 							{item.text && <p className="text-xl font-[350] ">{item.text} & development</p>}
 							{item.link && item.link_text && <Button field={item.link}>{item.link_text}</Button>}
