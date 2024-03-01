@@ -51,12 +51,12 @@ export default function Header() {
 	};
 
 	return (
-		<header className={`fixed w-screen md:mix-blend-difference ${open ? "bg-beige md:hidden" : ""}`}>
+		<header className={`w-screen md:fixed md:mix-blend-difference ${open ? "bg-beige md:hidden fixed" : ""}`}>
 			{/* MAIN NAV */}
 			<div className="flex gap-4 items-center justify-between px-8 py-4">
 				{/* LOGO */}
 				<motion.div variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
-					<Link href="/" className="logo-effect flex items-center">
+					<Link href="/" className="logo-effect flex items-center" onClick={handleLinkClick}>
 						<div className="md:hidden">
 							<Logo fillColor="#1E2632" />
 						</div>
@@ -90,7 +90,7 @@ export default function Header() {
 				<ul className="flex flex-col mt-16 items-center text-center gap-6">
 					{settings?.data.navigation.map(({ link, link_name }, index) => (
 						<motion.li key={link_name} className="text-xl p-6 text-dark" variants={item} initial="initial" whileInView="animate" custom={index} viewport={{ once: true }}>
-							<PrismicNextLink field={link} onClick={handleClick}>
+							<PrismicNextLink field={link} onClick={handleLinkClick}>
 								<span data-hover={link_name}>{link_name}</span>
 							</PrismicNextLink>
 						</motion.li>
