@@ -1,0 +1,48 @@
+{
+  "id": "project_info",
+  "type": "SharedSlice",
+  "name": "ProjectInfo",
+  "description": "ProjectInfo",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "label": {
+          "type": "Text",
+          "config": {
+            "label": "Label",
+            "placeholder": ""
+          }
+        },
+        "text": {
+          "type": "Text",
+          "config": {
+            "label": "Text",
+            "placeholder": ""
+          }
+        },
+        "link": {
+          "type": "Link",
+          "config": {
+            "label": "Link",
+            "placeholder": "",
+            "select": null
+          }
+        },
+        "link_text": {
+          "type": "Text",
+          "config": {
+            "label": "Link Text",
+            "placeholder": ""
+          }
+        }
+      }
+    }
+  ]
+}

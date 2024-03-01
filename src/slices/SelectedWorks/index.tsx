@@ -3,35 +3,39 @@ import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createClient } from "@/prismicio";
 import { isFilled, Content } from "@prismicio/client";
 import { PrismicNextImage } from "@prismicio/next";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicLink, SliceComponentProps } from "@prismicio/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
-import { ProjectCardDocument } from "../../../prismicio-types";
+import { ProjectPageDocument } from "../../../prismicio-types";
+import { ProjectCard } from "@/app/components/ProjectCard";
+import prismic from "@prismicio/client";
+import SelectedGallery from "@/app/components/SelectedGallery";
 
 /** Props for `SelectedWorks` */
 export type SelectedWorksProps = SliceComponentProps<Content.SelectedWorksSlice>;
 
 /** Component for "SelectedWorks" Slices */
 const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
-	const [selectedWorks, setSelectedWorks] = useState<ProjectCardDocument<string>[]>([]);
-	// Fetch data
+	const [selectedWorks, setSelectedWorks] = useState<ProjectPageDocument<string>[]>([]);
+	// Fetch data to get selected workks
 	useEffect(() => {
 		const fetchData = async () => {
 			const client = createClient();
 			const data = await Promise.all(
 				slice.items.map((item) => {
-					if (isFilled.contentRelationship(item.project_card) && item.project_card.uid) {
-						return client.getByUID("project_card", item.project_card.uid);
+					if (isFilled.contentRelationship(item.project_page) && item.project_page.uid) {
+						return client.getByUID("project_page", item.project_page.uid);
 					}
 				})
 			);
 
 			// Filter out undefined values and cast to the expected type
-			setSelectedWorks(data.filter((item): item is ProjectCardDocument<string> => !!item && !!item.data.selected));
+			setSelectedWorks(data.filter((item): item is ProjectPageDocument<string> => !!item && !!item.data.selected));
 		};
 
 		fetchData();
 	}, [slice.items]);
+
 
 	// GSAP ANIMATION
 	gsap.registerPlugin(ScrollTrigger);
@@ -46,7 +50,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 		}
 		return 0;
 	};
-	console.log(getScrollAmount());
+
 	// Anim setup
 	useEffect(() => {
 		const pin = gsap.fromTo(
@@ -75,16 +79,23 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 			pin.kill();
 		};
 	}, []);
-
+	
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
 			<section ref={triggerRef} className="h-[300vh] bg-dark">
 				<div className="sticky top-0 flex flex-col justify-center h-screen overflow-x-hidden">
-					<h2 className="text-light font-soria text-[4vw] px-14 pb-14">{slice.primary.section_title}</h2>
+					<div className="flex justify-between items-center px-14 pb-14">
+						<h2 className="text-light  font-soria text-[4vw]">{slice.primary.section_title}</h2>
+						<a className="text-light-grey underline font-light hover:text-grey transition-all cur" href="">
+							See all works
+						</a>
+					</div>
+
 					<div ref={galleryRef} className="relative pl-14 flex gap-4 w-fit ">
 						{selectedWorks.map((item, index) => {
 							if (item && item.data.selected) {
 								return (
+									
 									<div key={index} className="relative w-[560px] overflow-hidden flex flex-col gap-5">
 										<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "4:3", fit: "crop" }} />
 										<h2 className="font-light text-xl text-beige">{item.data.project_name}</h2>

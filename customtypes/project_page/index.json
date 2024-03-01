@@ -1,0 +1,97 @@
+{
+  "format": "page",
+  "id": "project_page",
+  "label": "Project Page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "selected": {
+        "type": "Boolean",
+        "config": {
+          "label": "Selected",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "hero_image": {
+        "type": "Image",
+        "config": {
+          "label": "Hero Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "project_name": {
+        "type": "Text",
+        "config": {
+          "label": "Project Name",
+          "placeholder": ""
+        }
+      },
+      "project_subtitle": {
+        "type": "Text",
+        "config": {
+          "label": "Project Subtitle",
+          "placeholder": ""
+        }
+      },
+      "category": {
+        "type": "Select",
+        "config": {
+          "label": "Category",
+          "placeholder": "",
+          "options": ["Design", "Development"]
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "project_gallery": {
+              "type": "SharedSlice"
+            },
+            "project_info": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    },
+    "SEO & Metadata": {
+      "meta_description": {
+        "config": {
+          "label": "Meta Description",
+          "placeholder": "A brief summary of the page"
+        },
+        "type": "Text"
+      },
+      "meta_image": {
+        "config": {
+          "constraint": {
+            "height": 1260,
+            "width": 2400
+          },
+          "label": "Meta Image",
+          "thumbnails": []
+        },
+        "type": "Image"
+      },
+      "meta_title": {
+        "config": {
+          "label": "Meta Title",
+          "placeholder": "A title of the page used for social media and search engines"
+        },
+        "type": "Text"
+      }
+    }
+  }
+}

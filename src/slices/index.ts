@@ -6,5 +6,8 @@ export const components = {
   about: dynamic(() => import("./About")),
   about_section: dynamic(() => import("./AboutSection")),
   landing: dynamic(() => import("./Landing")),
+  project_gallery: dynamic(() => import("./ProjectGallery")),
+  project_info: dynamic(() => import("./ProjectInfo")),
   selected_works: dynamic(() => import("./SelectedWorks")),
+  works_gallery: dynamic(() => import("./WorksGallery")),
 };
