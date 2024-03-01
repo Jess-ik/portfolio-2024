@@ -75,9 +75,9 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 	}, []);
 
 	return (
-		<section id="about" ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="relative max-w-[1800px] mx-auto  pt-[100px]  bg-beige   px-32">
+		<section id="about" ref={container} data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="relative max-w-[1800px] mx-auto  pt-[100px] border border-red-500 bg-beige  px-32">
 			{/* PILL IMAGE */}
-			<div ref={imageContainer} className="image-container  h-screen sticky  top-0 flex justify-center items-center">
+			<div ref={imageContainer} className="image-container overflow-x-hidden  h-screen sticky  top-0 flex justify-center items-center">
 				<div className="w-[50vw] "></div>
 				<div className="aboutAnim pill-container flex justify-center h-[80%]  ">
 					{selectedService !== null ? (
@@ -92,9 +92,9 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 				onMouseOver={() => {
 					setSelectedService(null);
 				}}
-				className="container absolute  top-24 h-screen  flex  flex-col justify-between gap-4 ">
+				className="container absolute w-fit  top-24 h-screen  flex  flex-col justify-between gap-4 ">
 				<div className=" h-full w-1/3  flex flex-col justify-center gap-4">
-					<h2 className="text-[28px] aboutAnim">{slice.primary.heading}</h2>
+					<h2 className="text-[28px] uppercase aboutAnim">{slice.primary.heading}</h2>
 					<p className="text-[20px] leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_01}</p>
 					<p className="text-[20px] font-light leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_02}</p>
 					<Button field={slice.primary.button_link}>{slice.primary.button_text}</Button>
@@ -108,7 +108,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 						onMouseOver={() => {
 							setSelectedService(index);
 						}}
-						className="service-container cursor-pointer w-screen h-[80vh] pt-[20vh]  flex flex-col justify-start relative">
+						className="service-container cursor-pointer  h-[80vh] pt-[20vh]  flex flex-col justify-start relative">
 						<h3 className=" text-[100px] font-semibold uppercase max-w-xl leading-[6rem]">{item.service}</h3>
 						{/* SKILLS */}
 						<ul className="flex gap-6 uppercase">

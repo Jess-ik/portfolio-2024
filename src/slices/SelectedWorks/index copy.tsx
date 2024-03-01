@@ -42,7 +42,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 	const getScrollAmount = () => {
 		if (typeof window !== "undefined" && galleryRef.current) {
 			const galleryWidth = galleryRef.current.offsetWidth;
-			return -(galleryWidth - window.innerWidth + 100);
+			return -(galleryWidth - window.innerWidth + 200);
 		}
 		return 0;
 	};
@@ -61,10 +61,10 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 				scrollTrigger: {
 					trigger: triggerRef.current,
 					start: "top top",
-					end: "bottom bottom",
+					end: `bottom bottom`,
 					scrub: 0.6,
 
-					markers: false,
+					markers: true,
 				},
 			}
 		);
@@ -78,16 +78,16 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-			<section ref={triggerRef} className="h-[300vh] bg-dark">
+			<section ref={triggerRef} className="h-[300vh] border border-red-500 bg-dark">
 				<div className="sticky top-0 flex flex-col justify-center h-screen overflow-x-hidden">
 					<div className="flex justify-between items-center px-14 pb-14">
-						<h2 className="text-light  font-soria text-[4vw]">{slice.primary.section_title}</h2>
+						<h2 className="text-light text-[28px] ">{slice.primary.section_title}</h2>
 						<a className="hover:text-light-grey  font-light text-grey transition-all cur" href="/works">
 							See all works
 						</a>
 					</div>
 
-					<div ref={galleryRef} className="relative pl-14 flex gap-4 w-fit ">
+					<div ref={galleryRef} className="relative pl-14 flex gap-4 w-fit overflow-x-hidden">
 						{selectedWorks.map((item, index) => {
 							if (item && item.data.selected) {
 								return (
