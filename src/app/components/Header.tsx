@@ -39,13 +39,15 @@ export default function Header() {
 		fetchData();
 	}, []);
 	return (
-		<header className="px-8 md:px-14 py-4 w-screen md:fixed mix-blend-difference z-1000">
+		<header className="px-8 md:px-14 py-4 w-screen md:fixed mix-blend-difference z-1000 ">
 			<div className="flex gap-4 items-center justify-between">
 				<motion.div variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
 					<Link href="/" className="logo-effect flex items-center">
 						<Logo />
 
-						<span data-hover="Jessica Louvel">Jessica Louvel</span>
+						<span data-hover="Jessica Louvel" className=" tracking-[.01rem]">
+							Jessica Louvel
+						</span>
 					</Link>
 				</motion.div>
 

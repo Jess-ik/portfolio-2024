@@ -1,4 +1,6 @@
-'use client'
+"use client";
+import LogoFull from "@/app/components/LogoFull";
+import LogoMobile from "@/app/components/LogoMobile";
 import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import { motion } from "framer-motion";
@@ -31,12 +33,20 @@ export type LandingProps = SliceComponentProps<Content.LandingSlice>;
  */
 const Landing = ({ slice }: LandingProps): JSX.Element => {
 	return (
-		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="relative  " >	
-			<div className=" h-screen w-screen bg-beige flex flex-col items-center justify-center text" >
-				<motion.h1 className="font-soria text-[10vw]" custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>{slice.primary.title}</motion.h1>
-				<motion.p className="max-w-xl text-center font-light md:text-xl lg:text-2xl leading-8" custom={2} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>{slice.primary.intro}</motion.p>
-				</div>
-				
+		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
+			<div className=" h-screen w-screen bg-grey flex flex-col gap-8 items-center justify-center text">
+				<motion.h1 className="hidden md:block font-soria text-[10vw] text-center " custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+					<span className="visually-hidden">{slice.primary.title}</span>
+					<LogoFull />
+				</motion.h1>
+				<motion.h1 className=" md:hidden font-soria text-[10vw] text-center " custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+					<span className="visually-hidden">{slice.primary.title}</span>
+					<LogoMobile />
+				</motion.h1>
+				<motion.p className="max-w-xl text-center font-light md:text-xl leading-8" custom={2} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+					{slice.primary.intro}
+				</motion.p>
+			</div>
 		</section>
 	);
 };
