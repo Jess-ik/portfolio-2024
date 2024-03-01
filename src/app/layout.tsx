@@ -48,12 +48,12 @@ export default function RootLayout({
 	return (
 		<html lang="en" className={`${jost.variable} ${soria.variable} scroll-smooth` }>
 			<body>
-				<SmoothScroll>
+				
 					<Header />
 					{children}
 					<ScrollTop />
 					<Footer />
-				</SmoothScroll>
+				
 			</body>
 		</html>
 	);
