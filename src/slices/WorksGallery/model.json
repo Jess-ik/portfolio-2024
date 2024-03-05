@@ -10,7 +10,20 @@
       "docURL": "...",
       "version": "initial",
       "description": "Default",
-      "imageUrl": ""
+      "imageUrl": "",
+      "primary": {},
+      "items": {
+        "project_page": {
+          "type": "Link",
+          "config": {
+            "label": "Project Page",
+            "select": "document",
+            "customtypes": [
+              "project_page"
+            ]
+          }
+        }
+      }
     }
   ]
 }

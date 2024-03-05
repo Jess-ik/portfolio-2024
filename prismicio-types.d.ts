@@ -197,6 +197,17 @@ type ProjectPageDocumentDataSlicesSlice =
  */
 interface ProjectPageDocumentData {
   /**
+   * Project Number field in *Project Page*
+   *
+   * - **Field Type**: Number
+   * - **Placeholder**: *None*
+   * - **API ID Path**: project_page.project_number
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#number
+   */
+  project_number: prismic.NumberField;
+
+  /**
    * Selected field in *Project Page*
    *
    * - **Field Type**: Boolean
@@ -492,7 +503,7 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >;
 
-type WorksDocumentDataSlicesSlice = never;
+type WorksDocumentDataSlicesSlice = WorksGallerySlice;
 
 /**
  * Content for Works documents
@@ -1077,6 +1088,21 @@ export type SelectedWorksSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *WorksGallery → Items*
+ */
+export interface WorksGallerySliceDefaultItem {
+  /**
+   * Project Page field in *WorksGallery → Items*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: works_gallery.items[].project_page
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project_page: prismic.ContentRelationshipField<"project_page">;
+}
+
+/**
  * Default variation for WorksGallery Slice
  *
  * - **API ID**: `default`
@@ -1086,7 +1112,7 @@ export type SelectedWorksSlice = prismic.SharedSlice<
 export type WorksGallerySliceDefault = prismic.SharedSliceVariation<
   "default",
   Record<string, never>,
-  never
+  Simplify<WorksGallerySliceDefaultItem>
 >;
 
 /**
@@ -1161,6 +1187,7 @@ declare module "@prismicio/client" {
       SelectedWorksSliceVariation,
       SelectedWorksSliceDefault,
       WorksGallerySlice,
+      WorksGallerySliceDefaultItem,
       WorksGallerySliceVariation,
       WorksGallerySliceDefault,
     };

@@ -63,7 +63,7 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 				</div>
 			</div>
 
-			<div ref={container} className="c-gallery gap-8 z-1000 relative bg-dark  ">
+			<div ref={container} className="c-gallery gap-8 z-1000 relative bg-dark">
 				<motion.div style={{ y: y }} className="c-column relative gap-8  flex flex-col">
 					{slice.items &&
 						slice.items.slice(0, 3).map((item, index) => (

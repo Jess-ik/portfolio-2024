@@ -134,7 +134,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 									))}
 							</ul>
 							{/* Hover image on mobile */}
-							{selectedService !== null ? <Image className="xl:hidden absolute  top-0 left-0 w-full h-full object-cover z-10  rounded-xl transition-opacity duration-300 ease-in-out opacity-0" src={slice.items[index]?.service_image?.url ?? ""} alt="Service Image" /> : ""}
+							{/* {selectedService !== null ? <PrismicNextImage   width={800} height={300} imgixParams={{ ar: "16:9", auto: "format" }} className="xl:hidden absolute  top-0 left-0 w-full h-full object-cover z-10  rounded-xl transition-opacity duration-300 ease-in-out opacity-0" field={slice.items[index]?.service_image?.url ?? ""} alt="Service Image" /> : ""} */}
 						</div>
 					))}
 				</div>

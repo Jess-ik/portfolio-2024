@@ -1,6 +1,9 @@
 import { Metadata } from "next";
 import { createClient } from "@/prismicio";
-import WorksPage from "../components/WorksPage";
+import { SliceZone } from "@prismicio/react";
+
+import { components } from "@/slices";
+import WorksPage from "../components/WorksPage-old";
 
 export default async function Page() {
   const client = createClient();
@@ -9,7 +12,8 @@ export default async function Page() {
 
 
   return (
-    <WorksPage />
+    // <WorksPage />
+    <SliceZone slices={page.data.slices} components={components} />
   );
 }
 
