@@ -45,7 +45,7 @@ export default function LocalInfo() {
 			<li>Avignon, FR </li>
 			<li>{currentTime} </li>
 			<li>
-				<Image width={50} height={50} className="inline" src={weatherIcon} alt="Weather Icon" />			
+				<Image width={50} height={50} loading="lazy" className="inline" src={weatherIcon ? weatherIcon : "http://openweathermap.org/img/wn/02d@2x.png"} alt="Weather Icon" />			
 			</li>
 			<li>{Math.round(currentTemp - 273.5)}°C</li>
 		</ul>

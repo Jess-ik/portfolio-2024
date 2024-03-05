@@ -7,6 +7,7 @@ import { PrismicLink, SliceComponentProps } from "@prismicio/react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ProjectPageDocument } from "../../../prismicio-types";
+import Link from "next/link";
 
 /** Props for `SelectedWorks` */
 export type SelectedWorksProps = SliceComponentProps<Content.SelectedWorksSlice>;
@@ -39,55 +40,50 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 	const triggerRef = useRef<HTMLDivElement>(null);
 
 	// Function to get the scroll amount
-	const getScrollAmount = () => {
-		if (typeof window !== "undefined" && galleryRef.current) {
-			const galleryWidth = galleryRef.current.offsetWidth;
-			return -(galleryWidth - window.innerWidth + 100);
-		}
-		return 0;
-	};
 
 	// Anim setup
 	useEffect(() => {
-		const pin = gsap.fromTo(
-			galleryRef.current,
-			{
-				translateX: 0,
-			},
-			{
-				translateX: getScrollAmount,
-				ease: "none",
-				duration: 1,
-				scrollTrigger: {
-					trigger: triggerRef.current,
-					start: "top top",
-					end: "bottom bottom",
-					scrub: 0.6,
-
-					markers: false,
+		if (galleryRef.current) {
+			const pin = gsap.fromTo(
+				galleryRef.current,
+				{
+					translateX: 0,
 				},
-			}
-		);
-		return () => {
-			{
-				/* A return function for killing the animation on component unmount */
-			}
-			pin.kill();
-		};
+				{
+					translateX: galleryRef.current.offsetWidth - window.innerWidth + 100,
+					ease: "none",
+					duration: 1,
+					scrollTrigger: {
+						trigger: triggerRef.current,
+						start: "top top",
+						end: "bottom bottom",
+						scrub: 0.6,
+
+						markers: false,
+					},
+				}
+			);
+			return () => {
+				{
+					/* A return function for killing the animation on component unmount */
+				}
+				pin.kill();
+			};
+		}
 	}, []);
 
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-			<section ref={triggerRef} className="h-[300vh] bg-dark">
-				<div className="sticky top-0 flex flex-col justify-center h-screen overflow-x-hidden">
-					<div className="flex flex-col md:flex-row gap-8 justify-between items-center px-8 md:px-14 pb-14">
-						<h2 className="font-soria text-light text-3xl md:text-7xl">{slice.primary.section_title}</h2>
-						<a className="hover:text-light-grey  font-light text-grey transition-all cur" href="/works">
+			<section ref={triggerRef} className="md:h-[300vh] bg-dark">
+				<div className="md:sticky md:top-0 flex flex-col justify-center md:h-screen md:overflow-x-hidden">
+					<div className="flex flex-col md:flex-row gap-8 justify-between items-center px-8 md:px-14 pt-32 md:pt-0 pb-14">
+						<h2 className="font-soria text-light text-5xl md:text-7xl">{slice.primary.section_title}</h2>
+						<a className="hover:text-light-grey hidden md:relative font-light text-grey transition-all cur" href="/works">
 							See all works
 						</a>
 					</div>
-
-					<div ref={galleryRef} className="relative pl-8 md:pl-14 flex gap-4 w-fit ">
+					{/* GALLERY DESKTOP */}
+					<div ref={galleryRef} className="hidden relative pl-8 md:pl-14 md:flex gap-4 w-fit ">
 						{selectedWorks.map((item, index) => {
 							if (item && item.data.selected) {
 								return (
@@ -106,6 +102,32 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 							}
 							return null;
 						})}
+					</div>
+					{/* GALLERY MOBILE */}
+					<div className=" md:hidden px-8 grid grid-cols-1 gap-6 justify-center items-center  pb-16">
+						{selectedWorks.slice(0, 3).map((item, index) => {
+							if (item && item.data.selected) {
+								return (
+									<PrismicLink key={index} document={item}>
+										<div key={index} className="selected-card flex flex-col gap-5">
+											<div className="cover">
+												<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "5:4", fit: "crop" }} />
+												<div className="hover flex justify-center items-center">
+													<button className=" w-fit font-light tracking-wide  bg-blue   py-3 px-4   rounded-full text-mainBlue   transition ease-in-out !duration-500">View project</button>
+												</div>
+											</div>
+											<h2 className="font-light text-xl text-beige">{item.data.project_name}</h2>
+										</div>
+									</PrismicLink>
+								);
+							}
+							return null;
+						})}
+						<div className="pt-16 flex justify-center">
+							<Link href="/works" className=" w-fit font-light tracking-wide  hover:bg-blue text-light py-3 px-4 border border-light hover:border-blue rounded-full text-mainBlue   transition ease-in-out !duration-500">
+								See all works
+							</Link>
+						</div>
 					</div>
 				</div>
 			</section>
