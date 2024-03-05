@@ -21,9 +21,6 @@
             "about_section": {
               "type": "SharedSlice"
             },
-            "about": {
-              "type": "SharedSlice"
-            },
             "selected_works": {
               "type": "SharedSlice"
             },

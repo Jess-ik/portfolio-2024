@@ -115,7 +115,6 @@ export type CraftsDocument<Lang extends string = string> =
 
 type HomeDocumentDataSlicesSlice =
   | AboutSectionSlice
-  | AboutSlice
   | SelectedWorksSlice
   | LandingSlice;
 
@@ -571,88 +570,6 @@ export type AllDocumentTypes =
   | ProjectPageDocument
   | SettingsDocument
   | WorksDocument;
-
-/**
- * Primary content in *About → Primary*
- */
-export interface AboutSliceDefaultPrimary {
-  /**
-   * Image Design field in *About → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.primary.image_design
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_design: prismic.ImageField<never>;
-
-  /**
-   * Main text field in *About → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.primary.main_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  main_text: prismic.KeyTextField;
-
-  /**
-   * Image Web field in *About → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.primary.image_web
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_web: prismic.ImageField<never>;
-
-  /**
-   * Second text field in *About → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.primary.second_text
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  second_text: prismic.KeyTextField;
-
-  /**
-   * Image craft field in *About → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: about.primary.image_craft
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_craft: prismic.ImageField<never>;
-}
-
-/**
- * Default variation for About Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type AboutSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<AboutSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *About*
- */
-type AboutSliceVariation = AboutSliceDefault;
-
-/**
- * About Shared Slice
- *
- * - **API ID**: `about`
- * - **Description**: About
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type AboutSlice = prismic.SharedSlice<"about", AboutSliceVariation>;
 
 /**
  * Primary content in *AboutSection → Primary*
@@ -1216,10 +1133,6 @@ declare module "@prismicio/client" {
       WorksDocumentData,
       WorksDocumentDataSlicesSlice,
       AllDocumentTypes,
-      AboutSlice,
-      AboutSliceDefaultPrimary,
-      AboutSliceVariation,
-      AboutSliceDefault,
       AboutSectionSlice,
       AboutSectionSliceDefaultPrimary,
       AboutSectionSliceDefaultItem,
