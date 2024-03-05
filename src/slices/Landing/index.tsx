@@ -47,7 +47,7 @@ const Landing = ({ slice }: LandingProps): JSX.Element => {
 				</motion.p> */}
 				<div className="w-screen lg:absolute bottom-0 px-8 py-12  font-light text-sm tracking-wide">
 					<div className="flex flex-col lg:flex-row gap-4  flex-wrap justify-center lg:justify-between ">
-						<div className="flex flex-col text-center lg:text-left">
+						<div className="flex flex-col text-center lg:text-left lg:items-start justify-center items-center">
 							<h1 className="font-[380]">Jessica Louvel</h1>
 							<h2>Front-End Developer</h2>
 						</div>
@@ -56,8 +56,8 @@ const Landing = ({ slice }: LandingProps): JSX.Element => {
 								<i className=" lg:w-1/5 border border-yellow-80 flex justify-center">{getIconComponent("Avignon")}</i>
 								<h3 className="">Based in Avignon, FR</h3>
 							</div>
-							<div className="flex flex-row gap-2  lg:justify-start justify-center items-center  w-2/3 lg:w-full ">
-								<i className=" lg:w-1/5   flex justify-center ">{getIconComponent("Worldwide")}</i>
+							<div className="flex flex-row gap-2   lg:justify-start justify-center items-center  w-2/3 lg:w-full ">
+								<i className=" lg:w-1/5  flex justify-center ">{getIconComponent("Worldwide")}</i>
 								<h3>Available worldwide</h3>
 							</div>
 						</div>
