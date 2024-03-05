@@ -12,7 +12,7 @@ export default async function Page({ params }: { params: Params }) {
 	const page = await client.getByUID("project_page", params.uid).catch(() => notFound());
 
 	return (
-		<section className="px-8 md:px-0 pt-16 md:pt-[200px] max-w-[1440px] mx-auto">
+		<section className="!px-8 md:px-0 pt-16 md:pt-[200px] max-w-[1440px] mx-auto">
 			<div className="flex flex-col w-full">
 				<p className="link-effect ">
 					<a href="/works" className="!pl-0">

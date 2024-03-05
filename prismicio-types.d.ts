@@ -4,12 +4,56 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type CraftsDocumentDataSlicesSlice = never;
+type CraftsDocumentDataSlicesSlice = CraftsGallerySlice;
 
 /**
  * Content for Crafts documents
  */
 interface CraftsDocumentData {
+  /**
+   * Title field in *Crafts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Crafts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA link field in *Crafts*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts.cta_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA text field in *Crafts*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts.cta_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+
   /**
    * Slice Zone field in *Crafts*
    *
@@ -751,6 +795,96 @@ export type AboutSectionSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *CraftsGallery → Primary*
+ */
+export interface CraftsGallerySliceDefaultPrimary {
+  /**
+   * title field in *CraftsGallery → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts_gallery.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *CraftsGallery → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts_gallery.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA link field in *CraftsGallery → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts_gallery.primary.cta_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  cta_link: prismic.LinkField;
+
+  /**
+   * CTA text field in *CraftsGallery → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts_gallery.primary.cta_text
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  cta_text: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *CraftsGallery → Items*
+ */
+export interface CraftsGallerySliceDefaultItem {
+  /**
+   * Image field in *CraftsGallery → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: crafts_gallery.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Default variation for CraftsGallery Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CraftsGallerySliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<CraftsGallerySliceDefaultPrimary>,
+  Simplify<CraftsGallerySliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *CraftsGallery*
+ */
+type CraftsGallerySliceVariation = CraftsGallerySliceDefault;
+
+/**
+ * CraftsGallery Shared Slice
+ *
+ * - **API ID**: `crafts_gallery`
+ * - **Description**: CraftsGallery
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CraftsGallerySlice = prismic.SharedSlice<
+  "crafts_gallery",
+  CraftsGallerySliceVariation
+>;
+
+/**
  * Primary content in *Landing → Primary*
  */
 export interface LandingSliceDefaultPrimary {
@@ -1091,6 +1225,11 @@ declare module "@prismicio/client" {
       AboutSectionSliceDefaultItem,
       AboutSectionSliceVariation,
       AboutSectionSliceDefault,
+      CraftsGallerySlice,
+      CraftsGallerySliceDefaultPrimary,
+      CraftsGallerySliceDefaultItem,
+      CraftsGallerySliceVariation,
+      CraftsGallerySliceDefault,
       LandingSlice,
       LandingSliceDefaultPrimary,
       LandingSliceVariation,

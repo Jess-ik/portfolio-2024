@@ -73,7 +73,7 @@ export default function Footer() {
 					</div>
 
 					<p className="link-effect animItem md:ml-[-20px]">
-						<a href={`mailto:${settings?.data.button_text}`} className="!p-0 md:!p-6">
+						<a href={`mailto:${settings?.data.button_text}`} className="!p-0 !md:!p-6">
 							<span data-hover={settings?.data.button_text} className="font-extralight text-blue text-3xl">
 								{settings?.data.button_text}
 							</span>

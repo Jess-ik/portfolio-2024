@@ -47,7 +47,7 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	return (
-		<html lang="en" className={`${jost.variable} ${soria.variable} scroll-smooth` }>
+		<html lang="en" className={`${jost.variable} ${soria.variable} ` }>
 			<body>
 				
 					<Header />

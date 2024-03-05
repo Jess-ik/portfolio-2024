@@ -116,10 +116,10 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 							className="service-container mx-8 xl:mx-0 px-8 xl:px-0 my-16 xl:my-0 py-32 xl:py-0 cursor-pointer shadow-md xl:shadow-none bg-light/50 xl:bg-transparent  rounded-xl lg:h-[60vh] xl:h-[80vh] xl:pt-[20vh]  flex flex-col justify-center xl:justify-start relative">
 							<h3 className="text-4xl md:text-7xl lg:text-[80px] font-semibold uppercase w-fit max-w-[14rem] md:max-w-xl   xl:leading-[6rem]">{item.service}</h3>
 							{/* SKILLS */}
-							<ul className="flex gap-6 uppercase">
+							<ul className="skills flex gap-4 uppercase">
 								{Array.isArray(item.skills) &&
 									item.skills.map((skill, skillIndex) => (
-										<li key={skillIndex} className="skill">
+										<li key={skillIndex} className="skill flex items-center">
 											{skill && "text" in skill ? skill.text : null}
 										</li>
 									))}
@@ -133,6 +133,8 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 										</li>
 									))}
 							</ul>
+							{/* Hover image on mobile */}
+							{selectedService !== null ? <img className="xl:hidden absolute  top-0 left-0 w-full h-full object-cover z-10  rounded-xl transition-opacity duration-300 ease-in-out opacity-0" src={slice.items[index]?.service_image?.url ?? ""} alt="Service Image" /> : ""}
 						</div>
 					))}
 				</div>

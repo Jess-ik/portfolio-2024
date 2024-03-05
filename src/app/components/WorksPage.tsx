@@ -35,7 +35,7 @@ export default function WorksPage() {
 	}, [activeFilter, projects, setFilteredWorks]);
 
 	return (
-		<section className="px-8 md:px-0 pt-16 md:pt-[200px] max-w-[1440px] mx-auto ">
+		<section className="!px-8 md:px-0 pt-16 md:pt-[200px] max-w-[1440px] mx-auto ">
 			<div className="flex flex-col gap-16">
 				<h1 className="font-soria text-7xl w-1/3">{page ? page.data.page_title : ""}</h1>
 				{/* FILTER */}
