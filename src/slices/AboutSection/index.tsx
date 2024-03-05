@@ -8,6 +8,7 @@ import { SliceComponentProps } from "@prismicio/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 
 /**
@@ -105,9 +106,10 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 				</div>
 			</div>
 			{/* SERVICES */}
-			<a href="/works">
-				<div id="services">
-					{slice.items.map((item, index) => (
+
+			<div id="services">
+				{slice.items.map((item, index) => (
+					<Link href={index === 0 || index === 1 ? "/works" : index === 2 ? "/crafts" : "/"}>
 						<div
 							key={index}
 							onMouseOver={() => {
@@ -134,11 +136,11 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 									))}
 							</ul>
 							{/* Hover image on mobile */}
-							{/* {selectedService !== null ? <PrismicNextImage   width={800} height={300} imgixParams={{ ar: "16:9", auto: "format" }} className="xl:hidden absolute  top-0 left-0 w-full h-full object-cover z-10  rounded-xl transition-opacity duration-300 ease-in-out opacity-0" field={slice.items[index]?.service_image?.url ?? ""} alt="Service Image" /> : ""} */}
+							<PrismicNextImage width={800} height={300} imgixParams={{ ar: "16:9", auto: "format" }} className="xl:hidden absolute top-0 left-0 w-full h-full object-cover z-10 rounded-xl transition-opacity duration-300 ease-in-out opacity-0" field={item.service_image} />
 						</div>
-					))}
-				</div>
-			</a>
+					</Link>
+				))}
+			</div>
 		</section>
 	);
 };
