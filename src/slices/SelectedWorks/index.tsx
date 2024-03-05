@@ -96,7 +96,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 											<div className="cover">
 												<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "5:4", fit: "crop" }} />
 												<div className="hover flex justify-center items-center">
-													<button className="px-6 py-4 bg-blue hover:bg-grey rounded-lg transition-all duration-300">View project</button>
+													<button className=" w-fit font-light tracking-wide  bg-blue   py-3 px-4   rounded-full text-mainBlue   transition ease-in-out !duration-500">View project</button>
 												</div>
 											</div>
 											<h2 className="font-light text-xl text-beige">{item.data.project_name}</h2>
