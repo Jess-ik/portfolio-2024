@@ -56,13 +56,15 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 			});
 		}
 
-		if (btnRef.current) {
-			btnRef.current.addEventListener("click", () => {
+		let btnRefValue = btnRef.current;
+
+		if (btnRefValue)  {
+			btnRefValue.addEventListener("click", () => {
 				isFlipped = !isFlipped;
 
 				setTimeout(() => {
-					if (btnRef.current) {
-						btnRef.current.textContent = isFlipped ? "Hide all ideas" : "Explore ideas";
+					if (btnRefValue) {
+						btnRefValue.textContent = isFlipped ? "Hide all ideas" : "Explore ideas";
 					}
 				}, 100);
 
@@ -95,8 +97,8 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 
 		return () => {
 			// Nettoyez les écouteurs d'événements lors du démontage du composant
-			if (btnRef.current) {
-				btnRef.current.removeEventListener("click", () => {});
+			if (btnRefValue) {
+				btnRefValue.removeEventListener("click", () => {});
 			}
 		};
 	}, [slice.items]);
