@@ -70,7 +70,7 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 
 				let state = Flip.getState(".img-gallery-container, .img");
 				gallery?.classList.toggle("order");
-				images.forEach((img) => img.classList.toggle("reorder", !isFlipped));
+				images.forEach((img) => (img as HTMLImageElement).classList.toggle("reorder", !isFlipped));
 
 				sectionRef.current?.classList.toggle("h-screen", !isFlipped);
 				if (isFlipped) {
