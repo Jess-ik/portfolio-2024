@@ -470,8 +470,8 @@ header {
 
 .c-gallery {
     box-shadow: inset -7px 42px 15px -30px rgba(0,0,0,0.54);
-    height: 175vh;
-    display: flex;
+    height: 160vh;
+
     flex-direction: row;
     gap: -2vw;
     padding: 2vw;
@@ -485,7 +485,6 @@ header {
 .c-collumn {
     width: 25%;
     height: 100%;
-
     min-width: 250px;
     position: relative;
 }
@@ -513,10 +512,10 @@ header {
     position: relative;
 }
 .c-column:nth-of-type(3){
-    top: -45%;
+    top: -70%;
     position: relative;
 }
 .c-column:nth-of-type(4){
-    top: -75%;
+    top: -105%;
     position: relative;
 }

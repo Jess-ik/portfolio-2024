@@ -61,7 +61,7 @@ export default function Footer() {
 			<div className=" pt-28 flex flex-col gap-24 text-light-grey">
 				{/* TOP FOOTER */}
 				<div className=" flex flex-col items-center md:items-start gap-8">
-					<h3 className="font-light text-grey text-2xl  animItem">{settings?.data.question}</h3>
+					<h3 className="font-light text-grey text-lg md:text-2xl  animItem">{settings?.data.question}</h3>
 
 					<div className="hidden md:flex  gap-4 h-full  animItem">
 						<LogoBadge />
@@ -72,9 +72,9 @@ export default function Footer() {
 						<h4 className="font-soria text-6xl md:text-9xl">{settings?.data.cta}</h4>
 					</div>
 
-					<p className="link-effect animItem md:ml-[-20px]">
+					<p className="link-effect animItem md:ml-[5px]">
 						<a href={`mailto:${settings?.data.button_text}`} className="!p-0 !md:!p-6">
-							<span data-hover={settings?.data.button_text} className="font-extralight text-blue text-3xl">
+							<span data-hover={settings?.data.button_text} className="font-extralight text-blue text-2xl md:text-3xl">
 								{settings?.data.button_text}
 							</span>
 						</a>
@@ -87,7 +87,7 @@ export default function Footer() {
 						<ul className="flex md:ml-[-20px]">
 							{Array.isArray(settings?.data.social) &&
 								settings?.data.social.map(({ social_link, social_name }, index) => (
-									<li key={social_name} className="link-effect">
+									<li key={social_name} className="link-effect text-sm md:text-base">
 										<PrismicNextLink field={social_link}>
 											<span data-hover={social_name}>{social_name}</span>
 										</PrismicNextLink>
@@ -98,7 +98,7 @@ export default function Footer() {
 					{/* LOCAL INFO */}
 					<LocalInfo />
 					{/* CREDITS */}
-					<div className="animItem">Crafted with ♥️ by Jessica Louvel</div>
+					<div className="animItem text-sm md:text-base">Crafted with ♥️ by Jessica Louvel</div>
 				</div>
 			</div>
 		</footer>

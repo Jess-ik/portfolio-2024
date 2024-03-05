@@ -57,7 +57,7 @@ const WorksGallery = ({ slice }: WorksGalleryProps): JSX.Element => {
     >
       <section className="!px-8 md:px-0 pt-16 md:pt-[200px] max-w-[1440px] mx-auto ">
 			<div className="flex flex-col gap-16">
-				<h1 className="font-soria text-7xl w-1/3">{page ? page.data.page_title : ""}</h1>
+				<h1 className="font-soria text-7xl  w-1/3">{page ? page.data.page_title : ""}</h1>
 				{/* FILTER */}
 				<div className="filters flex gap-8">
 					<span onClick={() => setActiveFilter("*")} data-filter="*" className={activeFilter === "*" || activeFilter === "" ? "text-blue" : "text-grey "}>

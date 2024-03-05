@@ -28,9 +28,9 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 	});
 	const { height } = dimension;
 	const y = useTransform(scrollYProgress, [0, 1], [0, height * 2]);
-	const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
-	const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 1.25]);
-	const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
+	const y2 = useTransform(scrollYProgress, [0, 1], [0, height * 3]);
+	const y3 = useTransform(scrollYProgress, [0, 1], [0, height * 2.5]);
+	const y4 = useTransform(scrollYProgress, [0, 1], [0, height * 3.3]);
 	useEffect(() => {
 		const lenis = new Lenis();
 
@@ -54,16 +54,25 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 	return (
 		<section className="c-section relative">
 			<div className="sticky top-0 w-screen h-[70vh] bg-beige flex flex-col gap-16 justify-center items-center ">
-				<h1 className=" font-soria text-7xl md:text-[150px]  ">{slice.primary.title}</h1>
-				<p className=" font-[200] text-grey md:w-[50vw] text-xl text-center">{slice.primary.description}</p>
+				<h1 className=" font-soria text-7xl  ">{slice.primary.title}</h1>
+				<p className=" font-[200] text-grey w-[80vw] md:w-[50vw] text-base  md:text-xl text-center">{slice.primary.description}</p>
 
 				<div className="flex flex-col justify-center items-center gap-4">
 					<Button field={slice.primary.cta_link}>{slice.primary.cta_text}</Button>
-					<p className="font-[350] text-sm">Scroll down to explore</p>
+					<p className="font-[350] text-grey opacity-60 text-sm">Scroll down to explore</p>
 				</div>
 			</div>
-
-			<div ref={container} className="c-gallery gap-8 z-1000 relative bg-dark">
+			{/* MOBILE GALLERY */}
+			<div className="columns-3 md:hidden z-1000 relative bg-dark p-8">
+				{slice.items &&
+					slice.items.map((item, index) => (
+						<div className="c-image-container pb-4" key={index}>
+							<PrismicNextImage field={item.image} />
+						</div>
+					))}
+			</div>
+			{/* DESKTOP GALLERY */}
+			<div ref={container} className="hidden md:flex c-gallery gap-8 z-1000 relative bg-dark">
 				<motion.div style={{ y: y }} className="c-column relative gap-8  flex flex-col">
 					{slice.items &&
 						slice.items.slice(0, 3).map((item, index) => (
@@ -91,7 +100,7 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 						))}
 				</motion.div>
 
-				<motion.div style={{ y: y4 }} className="c-column">
+				<motion.div style={{ y: y4 }} className="c-column  gap-8  flex flex-col">
 					{slice.items &&
 						slice.items.slice(9, 12).map((item, index) => (
 							<div className="c-image-container" key={index}>
