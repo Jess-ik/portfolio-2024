@@ -109,7 +109,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 
 			<div id="services">
 				{slice.items.map((item, index) => (
-					<Link href={index === 0 || index === 1 ? "/works" : index === 2 ? "/crafts" : "/"}>
+					<Link key={index} href={index === 0 || index === 1 ? "/works" : index === 2 ? "/crafts" : "/"}>
 						<div
 							key={index}
 							onMouseOver={() => {
