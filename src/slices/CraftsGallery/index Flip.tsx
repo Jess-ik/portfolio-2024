@@ -44,7 +44,7 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 			images.forEach((img, index) => {
 				const rotation = isFlipped ? 0 : rotationValues[index];
 				gsap.fromTo(
-					img,
+					img as HTMLDivElement,
 					{ rotate: 0 },
 					{
 						rotate: rotation,
