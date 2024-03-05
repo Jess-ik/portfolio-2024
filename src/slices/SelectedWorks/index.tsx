@@ -81,7 +81,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 			<section ref={triggerRef} className="h-[300vh] bg-dark">
 				<div className="sticky top-0 flex flex-col justify-center h-screen overflow-x-hidden">
 					<div className="flex flex-col md:flex-row gap-8 justify-between items-center px-8 md:px-14 pb-14">
-						<h2 className="text-light text-3xl md:text-4xl">{slice.primary.section_title}</h2>
+						<h2 className="font-soria text-light text-3xl md:text-7xl">{slice.primary.section_title}</h2>
 						<a className="hover:text-light-grey  font-light text-grey transition-all cur" href="/works">
 							See all works
 						</a>
@@ -94,7 +94,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 									<PrismicLink key={index} document={item}>
 										<div key={index} className="selected-card relative w-[300px] md:w-[560px] overflow-hidden flex flex-col gap-5">
 											<div className="cover">
-												<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "4:3", fit: "crop" }} />
+												<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "5:4", fit: "crop" }} />
 												<div className="hover flex justify-center items-center">
 													<button className="px-6 py-4 bg-blue hover:bg-grey rounded-lg transition-all duration-300">View project</button>
 												</div>

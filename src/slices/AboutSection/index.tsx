@@ -98,7 +98,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 				}}
 				className="px-8 xl:px-0 mx-auto mt-16 xl:mt-0 container xl:absolute xl:w-fit  xl:top-24 xl:h-screen  flex  flex-col justify-between gap-4 ">
 				<div className="h-full xl:w-1/3  flex flex-col justify-center items-center md:items-start gap-4 text-center md:text-left ">
-					<h2 className="text-[28px] uppercase aboutAnim">{slice.primary.heading}</h2>
+					<h2 className="font-soria text-3xl md:text-7xl  aboutAnim">{slice.primary.heading}</h2>
 					<p className="text-[20px] leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_01}</p>
 					<p className="text-[20px] font-light leading-10 text-grey pb-4 aboutAnim">{slice.primary.paragraph_02}</p>
 					<Button field={slice.primary.button_link}>{slice.primary.button_text}</Button>
