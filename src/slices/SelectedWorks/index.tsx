@@ -98,7 +98,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 				<div className="md:sticky md:top-0 flex flex-col justify-center md:h-screen md:overflow-x-hidden">
 					<div className="flex flex-col md:flex-row gap-8 justify-between items-center px-8 md:px-14 pt-32 md:pt-0 pb-14">
 						<h2 className="font-soria text-light text-5xl md:text-7xl">{slice.primary.section_title}</h2>
-						<a className="hover:text-light-grey hidden md:relative font-light text-grey transition-all cur" href="/works">
+						<a className="hover:text-light-grey hidden md:flex font-light text-grey transition-all cur" href="/works">
 							See all works
 						</a>
 					</div>

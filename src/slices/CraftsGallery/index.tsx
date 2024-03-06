@@ -73,7 +73,7 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 
 	return (
 		<section className="c-section relative">
-			<div className="relative md:sticky top-0  w-screen h-[70vh] bg-beige flex flex-col gap-16 justify-center items-center ">
+			<div className="relative xl:sticky top-0  w-screen h-[70vh] bg-beige flex flex-col gap-16 justify-center items-center ">
 				<h1 className=" font-soria text-7xl  ">{slice.primary.title}</h1>
 				<p className=" font-[200] text-grey w-[80vw] md:w-[50vw] text-base  md:text-xl text-center">{slice.primary.description}</p>
 
@@ -83,47 +83,47 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 				</div>
 			</div>
 			{/* MOBILE GALLERY */}
-			<div  className="columns-3 md:hidden relative z-99 bg-dark p-8  ">
+			<div  className="columns-3 xl:hidden relative z-99 bg-dark p-8  ">
 				
 				{slice.items &&
 					slice.items.map((item, index) => (
-						<div key={index} className="c-image-container pb-4" >
+						<motion.div key={index} variants={animCard} initial="initial" whileInView="animate" custom={index} viewport={{ once: true }} className="c-image-container pb-4" >
 							<PrismicNextImage field={item.image} />
-						</div>
+						</motion.div>
 					))}
 			</div>
 			{/* DESKTOP GALLERY */}
-			<div ref={container} className="hidden  md:flex c-gallery gap-8  relative bg-dark">
-				<motion.div style={{ y: y }} className="c-column relative gap-8  flex flex-col">
+			<div ref={container} className="hidden  xl:flex c-gallery gap-8  relative bg-dark">
+				<motion.div style={{ y: y }} className="c-column w-1/4 relative gap-8  flex flex-col">
 					{slice.items &&
-						slice.items.slice(0, 3).map((item, index) => (
+						slice.items.slice(0, 5).map((item, index) => (
 							<div className="c-image-container" key={index}>
 								<PrismicNextImage field={item.image} />
 							</div>
 						))}
 				</motion.div>
 
-				<motion.div style={{ y: y2 }} className="c-column gap-8 relative flex flex-col">
+				<motion.div style={{ y: y2 }} className="c-column w-1/4 gap-8 relative flex flex-col">
 					{slice.items &&
-						slice.items.slice(3, 6).map((item, index) => (
+						slice.items.slice(5, 10).map((item, index) => (
 							<div className="c-image-container" key={index}>
 								<PrismicNextImage field={item.image} />
 							</div>
 						))}
 				</motion.div>
 
-				<motion.div style={{ y: y3 }} className="c-column  gap-8 relative flex flex-col">
+				<motion.div style={{ y: y3 }} className="c-column w-1/4 gap-8 relative flex flex-col">
 					{slice.items &&
-						slice.items.slice(6, 9).map((item, index) => (
+						slice.items.slice(10, 14).map((item, index) => (
 							<div className="c-image-container" key={index}>
 								<PrismicNextImage field={item.image} />
 							</div>
 						))}
 				</motion.div>
 
-				<motion.div style={{ y: y4 }} className="c-column  gap-8 relative flex flex-col">
+				<motion.div style={{ y: y4 }} className="c-column w-1/4 gap-8 relative flex flex-col">
 					{slice.items &&
-						slice.items.slice(9, 12).map((item, index) => (
+						slice.items.slice(14, 19).map((item, index) => (
 							<div className="c-image-container" key={index}>
 								<PrismicNextImage field={item.image} />
 							</div>
