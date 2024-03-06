@@ -87,7 +87,7 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 				
 				{slice.items &&
 					slice.items.map((item, index) => (
-						<div className="c-image-container pb-4" >
+						<div key={index} className="c-image-container pb-4" >
 							<PrismicNextImage field={item.image} />
 						</div>
 					))}
