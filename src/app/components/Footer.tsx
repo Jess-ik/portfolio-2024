@@ -57,10 +57,10 @@ export default function Footer() {
 	}, []);
 
 	return (
-		<footer id="contact" className="px-8 md:px-14 py-8 w-screen bg-dark relative ">
-			<div className=" pt-28 flex flex-col gap-24 text-light-grey">
+		<footer id="contact" className="px-8 md:px-14 py-8 w-screen bg-dark relative z-900 ">
+			<div className="pt-12 md:pt-28 flex flex-col gap-14 md:gap-24 text-light-grey">
 				{/* TOP FOOTER */}
-				<div className=" flex flex-col items-center md:items-start gap-8">
+				<div className=" flex flex-col items-center md:items-start gap-4 md:gap-8">
 					<h3 className="font-light text-grey text-lg md:text-2xl  animItem">{settings?.data.question}</h3>
 
 					<div className="hidden md:flex  gap-4 h-full  animItem">

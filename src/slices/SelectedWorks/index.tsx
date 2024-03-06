@@ -8,6 +8,24 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import { ProjectPageDocument } from "../../../prismicio-types";
 import Link from "next/link";
+import { motion } from "framer-motion";
+
+const animCard = {
+	initial: {
+		opacity: 0,
+		y: -30,
+	},
+	animate: (index: number) => ({
+		opacity: 1,
+		y: 0,
+
+		transition: {
+			duration: 0.3,
+			ease: "easeOut",
+			delay: 0.08 * (index + 1),
+		},
+	}),
+};
 
 /** Props for `SelectedWorks` */
 export type SelectedWorksProps = SliceComponentProps<Content.SelectedWorksSlice>;
@@ -39,9 +57,9 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 	const galleryRef = useRef<HTMLDivElement>(null);
 	const triggerRef = useRef<HTMLDivElement>(null);
 
-	// Function to get the scroll amount
+	
 
-	// Anim setup
+	// Anim setup for horizontal scroll
 	useEffect(() => {
 		if (galleryRef.current) {
 			const pin = gsap.fromTo(
@@ -70,7 +88,10 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 				pin.kill();
 			};
 		}
+	
 	}, []);
+
+
 
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
@@ -108,8 +129,8 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 						{selectedWorks.slice(0, 3).map((item, index) => {
 							if (item && item.data.selected) {
 								return (
-									<PrismicLink key={index} document={item}>
-										<div key={index} className="selected-card flex flex-col gap-5">
+									<PrismicLink key={index} document={item} className="mobile-card">
+										<motion.div key={index} variants={animCard} initial="initial" whileInView="animate" custom={index} viewport={{ once: true }} className="selected-card flex flex-col gap-5">
 											<div className="cover">
 												<PrismicNextImage width={582} height={472} field={item.data.hero_image} className="rounded-2xl" imgixParams={{ ar: "5:4", fit: "crop" }} />
 												<div className="hover flex justify-center items-center">
@@ -117,17 +138,17 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 												</div>
 											</div>
 											<h2 className="font-light text-xl text-beige">{item.data.project_name}</h2>
-										</div>
+										</motion.div>
 									</PrismicLink>
 								);
 							}
 							return null;
 						})}
-						<div className="pt-16 flex justify-center">
+						<motion.div className="pt-16 flex justify-center" variants={animCard} initial="initial" whileInView="animate" custom={1} viewport={{ once: true }}>
 							<Link href="/works" className=" w-fit font-light tracking-wide  hover:bg-blue text-light py-3 px-4 border border-light hover:border-blue rounded-full text-mainBlue   transition ease-in-out !duration-500">
 								See all works
 							</Link>
-						</div>
+						</motion.div>
 					</div>
 				</div>
 			</section>

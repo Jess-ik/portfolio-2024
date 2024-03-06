@@ -35,37 +35,18 @@ export type LandingProps = SliceComponentProps<Content.LandingSlice>;
 const Landing = ({ slice }: LandingProps): JSX.Element => {
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-			<div className="h-screen w-screen bg-beige flex flex-col gap-8 items-center justify-center lg:justify-center ">
-				<motion.div className="hidden lg:flex mt-[-48px]" custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+			<div className=" h-screen w-screen bg-beige flex flex-col gap-8 items-center justify-center text">
+				<motion.h1 className="hidden md:block font-soria text-[10vw] text-center " custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+					<span className="visually-hidden">{slice.primary.title}</span>
 					<LogoDesktop />
-				</motion.div>
-				<motion.h1 className=" lg:hidden mt-[10vh]" custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+				</motion.h1>
+				<motion.h1 className="mt-[-81px] md:hidden font-soria text-[10vw] text-center " custom={1} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+					<span className="visually-hidden">{slice.primary.title}</span>
 					<LogoMobile />
 				</motion.h1>
-				{/* <motion.p className="px-8 max-w-xl text-center font-light lg:text-xl leading-8" custom={2} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
-					{slice.primary.intro}
-				</motion.p> */}
-				<div className="w-screen lg:absolute bottom-0 px-8 py-12  font-light text-sm tracking-wide">
-					<div className="flex flex-col lg:flex-row gap-4  flex-wrap justify-center lg:justify-between ">
-						<div className="flex flex-col text-center lg:text-left lg:items-start justify-center items-center">
-							<h1 className="font-[380]">Jessica Louvel</h1>
-							<h2>Front-End Developer</h2>
-						</div>
-						<div className="flex flex-col lg:items-start justify-center items-center  lg:w-1/4  ">
-							<div className="flex flex-row gap-2 lg:justify-start justify-center items-center  w-2/3 lg:w-full ">
-								<i className=" lg:w-1/5 border border-yellow-80 flex justify-center">{getIconComponent("Avignon")}</i>
-								<h3 className="">Based in Avignon, FR</h3>
-							</div>
-							<div className="flex flex-row gap-2   lg:justify-start justify-center items-center  w-2/3 lg:w-full ">
-								<i className=" lg:w-1/5  flex justify-center ">{getIconComponent("Worldwide")}</i>
-								<h3>Available worldwide</h3>
-							</div>
-						</div>
-						<div className="w-full lg:w-1/2">
-							<p>{slice.primary.intro}</p>
-						</div>
-					</div>
-				</div>
+				<motion.p className="px-8 max-w-xl text-center font-light md:text-xl leading-8" custom={2} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
+					Designer and Front-end Developer
+				</motion.p>
 			</div>
 		</section>
 	);

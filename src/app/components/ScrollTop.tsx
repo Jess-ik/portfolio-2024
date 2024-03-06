@@ -30,10 +30,8 @@ export default function ScrollTop() {
 	};
 
 	return (
-		<button aria-label="Scroll to top button" className={`fixed  bottom-6 right-6 transition-opacity duration-200 cursor-pointer ${isVisible ? "opacity-100" : "opacity-0"}`} onClick={scrollToTop}>
-			<BsArrowUpCircle className="h-6 w-6 text-grey mix-blend-difference" />
+		<button aria-label="Scroll to top button" className={`scrollTop fixed  mix-blend-difference  bottom-6 right-6 transition-opacity duration-200 cursor-pointer ${isVisible ? "opacity-100" : "opacity-0"}`} onClick={scrollToTop}>
+			<BsArrowUpCircle className="h-6 w-6 text-grey " />
 		</button>
 	);
-};
-
-
+}

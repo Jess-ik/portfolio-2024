@@ -59,11 +59,11 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 
 				<div className="flex flex-col justify-center items-center gap-4">
 					<Button field={slice.primary.cta_link}>{slice.primary.cta_text}</Button>
-					<p className="font-[350] text-grey opacity-60 text-sm">Scroll down to explore</p>
+					<p className="font-[350] text-grey opacity-60 text-sm">Or scroll down to explore</p>
 				</div>
 			</div>
 			{/* MOBILE GALLERY */}
-			<div className="columns-3 md:hidden z-1000 relative bg-dark p-8">
+			<div className="columns-3 md:hidden sticky top-0 bg-dark p-8">
 				{slice.items &&
 					slice.items.map((item, index) => (
 						<div className="c-image-container pb-4" key={index}>

@@ -12,7 +12,7 @@ export type ProjectInfoProps = SliceComponentProps<Content.ProjectInfoSlice>;
  */
 const ProjectInfo = ({ slice }: ProjectInfoProps): JSX.Element => {
 	return (
-		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="border-t border-blue mt-16 pt-8">
+		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation} className="md:border-t border-blue  mt-16 pt-8">
 			<div className="flex flex-col md:flex-row gap-16 md:gap-32">
 				{slice.items.map((item, index) => (
 					<div key={index} className="flex flex-col gap-5 ">
