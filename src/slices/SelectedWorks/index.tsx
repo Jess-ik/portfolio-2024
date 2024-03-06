@@ -61,6 +61,8 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 
 	// Anim setup for horizontal scroll
 	useEffect(() => {
+		let amountScroll = (galleryRef.current?.offsetWidth ?? 0) - (typeof window !== "undefined" ? window.innerWidth : 0) + 100;
+
 		if (galleryRef.current) {
 			const pin = gsap.fromTo(
 				galleryRef.current,
@@ -68,7 +70,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 					translateX: 0,
 				},
 				{
-					translateX: galleryRef.current.offsetWidth - window.innerWidth + 100,
+					translateX: -amountScroll,
 					ease: "none",
 					duration: 1,
 					scrollTrigger: {
@@ -88,10 +90,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 				pin.kill();
 			};
 		}
-	
-	}, []);
-
-
+	}, [galleryRef.current?.offsetWidth]);
 
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
