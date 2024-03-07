@@ -12,13 +12,6 @@
         },
         "type": "UID"
       },
-      "project_number": {
-        "type": "Number",
-        "config": {
-          "label": "Project Number",
-          "placeholder": ""
-        }
-      },
       "selected": {
         "type": "Boolean",
         "config": {

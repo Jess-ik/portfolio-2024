@@ -197,17 +197,6 @@ type ProjectPageDocumentDataSlicesSlice =
  */
 interface ProjectPageDocumentData {
   /**
-   * Project Number field in *Project Page*
-   *
-   * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project_page.project_number
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#number
-   */
-  project_number: prismic.NumberField;
-
-  /**
    * Selected field in *Project Page*
    *
    * - **Field Type**: Boolean

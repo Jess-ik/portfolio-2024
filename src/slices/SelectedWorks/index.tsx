@@ -42,11 +42,12 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 					if (isFilled.contentRelationship(item.project_page) && item.project_page.uid) {
 						return client.getByUID("project_page", item.project_page.uid);
 					}
+					return undefined;
 				})
 			);
-
-			// Filter out undefined values and cast to the expected type
-			setSelectedWorks(data.filter((item): item is ProjectPageDocument<string> => !!item && !!item.data.selected));
+		
+			// Filtrer les valeurs undefined et cast vers le type attendu
+			setSelectedWorks(data.filter((item): item is ProjectPageDocument<string> => !!item));
 		};
 
 		fetchData();
@@ -104,9 +105,8 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 					</div>
 					{/* GALLERY DESKTOP */}
 					<div ref={galleryRef} className="hidden relative pl-8 md:pl-14 md:flex gap-4 w-fit ">
-						{selectedWorks.map((item, index) => {
-							if (item && item.data.selected) {
-								return (
+						{selectedWorks.map((item, index) => (
+							
 									<PrismicLink key={index} document={item}>
 										<div key={index} className="selected-card relative w-[300px] md:w-[560px] overflow-hidden flex flex-col gap-5">
 											<div className="cover">
@@ -118,16 +118,13 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 											<h2 className="font-light text-xl text-beige">{item.data.project_name}</h2>
 										</div>
 									</PrismicLink>
-								);
-							}
-							return null;
-						})}
+							
+						))}
 					</div>
 					{/* GALLERY MOBILE */}
 					<div className=" md:hidden px-8 grid grid-cols-1 gap-6 justify-center items-center  pb-16">
-						{selectedWorks.slice(0, 3).map((item, index) => {
-							if (item && item.data.selected) {
-								return (
+						{selectedWorks.slice(0, 3).map((item, index) => (
+							
 									<PrismicLink key={index} document={item} className="mobile-card">
 										<motion.div key={index} variants={animCard} initial="initial" whileInView="animate" custom={index} viewport={{ once: true }} className="selected-card flex flex-col gap-5">
 											<div className="cover">
@@ -139,10 +136,7 @@ const SelectedWorks = ({ slice }: SelectedWorksProps): JSX.Element => {
 											<h2 className="font-light text-xl text-beige">{item.data.project_name}</h2>
 										</motion.div>
 									</PrismicLink>
-								);
-							}
-							return null;
-						})}
+							))}
 						<motion.div className="pt-16 flex justify-center" variants={animCard} initial="initial" whileInView="animate" custom={1} viewport={{ once: true }}>
 							<Link href="/works" className=" w-fit font-light tracking-wide  hover:bg-blue text-light py-3 px-4 border border-light hover:border-blue rounded-full text-mainBlue   transition ease-in-out !duration-500">
 								See all works
