@@ -108,7 +108,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 			</div>
 			{/* PILL IMAGE MOBILE */}
 			<div className="xl:hidden w-screen h-[65vw]  md:h-[400px] flex justify-center mx-auto">
-				<PrismicNextImage field={slice.primary.about_image} className="w-full   object-cover" width={800} height={300} imgixParams={{ ar: "16:9", auto: "format" }} />
+				<PrismicNextImage field={slice.primary.about_image_mobile} className="w-full   object-cover" width={800} height={300} imgixParams={{ ar: "16:9", auto: "format" }} />
 			</div>
 			{/* ABOUT ME */}
 			<div
@@ -161,7 +161,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 									))}
 							</ul>
 							{/* Hover image on mobile */}
-							<PrismicNextImage width={800} height={300} imgixParams={{ ar: "16:9", auto: "format" }} className="xl:hidden absolute top-0 left-0 w-full h-full object-cover z-10 rounded-xl transition-opacity duration-300 ease-in-out opacity-0" field={item.service_image} />
+							<PrismicNextImage width={800} height={300} imgixParams={{ ar: "16:9", auto: "format" }} className="xl:hidden absolute top-0 left-0 w-full h-full object-cover z-10 rounded-xl transition-opacity duration-300 ease-in-out opacity-0" field={item.service_image_mobile} />
 						</div>
 					</Link>
 				))}

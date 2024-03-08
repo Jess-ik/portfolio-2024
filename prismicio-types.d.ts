@@ -634,6 +634,16 @@ export interface AboutSectionSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   about_image: prismic.ImageField<never>;
+
+  /**
+   * About Image Mobile field in *AboutSection → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.primary.about_image_mobile
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  about_image_mobile: prismic.ImageField<never>;
 }
 
 /**
@@ -679,6 +689,16 @@ export interface AboutSectionSliceDefaultItem {
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   service_image: prismic.ImageField<never>;
+
+  /**
+   * Service Image Mobile field in *AboutSection → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about_section.items[].service_image_mobile
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  service_image_mobile: prismic.ImageField<never>;
 }
 
 /**

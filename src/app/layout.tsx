@@ -52,9 +52,9 @@ export default function RootLayout({
 				
 					<Header />
 					{children}
-					<ScrollTop />
-					<Footer />
-					<PrismicPreview repositoryName={repositoryName} />
+					
+				<Footer />
+				<ScrollTop />
 
 			</body>
 		</html>

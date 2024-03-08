@@ -44,12 +44,9 @@ header {
     /* added line to stop words getting smushed together (as they go onto seperate lines and some screen readers do not understand line feeds as a space */
 }
 
-.footer {
-    border-color: theme('colors.dark');
-}
 
 .scrollTop {
-    z-index: 1000;
+    z-index: 999;
 }
 
 /* LOGO ANIM */
@@ -487,7 +484,7 @@ header {
 
 .c-gallery {
     box-shadow: inset -7px 42px 15px -30px rgba(0,0,0,0.54);
-    height: 380vh;
+    height: 360vh;
 
     flex-direction: row;
     gap: -2vw;
@@ -521,7 +518,7 @@ header {
 }
 
 .c-column:nth-of-type(1){
-    top: -10%;
+    top: -15%;
     position: relative;
 }
 .c-column:nth-of-type(2){
@@ -529,7 +526,7 @@ header {
     position: relative;
 }
 .c-column:nth-of-type(3){
-    top: -10%;
+    top: -15%;
     position: relative;
 }
 .c-column:nth-of-type(4){

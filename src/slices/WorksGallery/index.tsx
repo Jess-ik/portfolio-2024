@@ -50,11 +50,11 @@ const WorksGallery = ({ slice }: WorksGalleryProps): JSX.Element => {
 			setPage(page);
 
 			setProjects(data.reverse() as ProjectPageDocument<string>[]);
-			setFilteredWorks(projects);
+			setFilteredWorks(data.reverse() as ProjectPageDocument<string>[]);
 		};
 
 		fetchData();
-	}, [slice.items]);
+	}, [ slice.items]);
 
 	// Handle Filtering
 	const [filteredWorks, setFilteredWorks] = useState<ProjectPageDocument<string>[]>([]);
@@ -71,7 +71,7 @@ const WorksGallery = ({ slice }: WorksGalleryProps): JSX.Element => {
 	}, [activeFilter, projects, setFilteredWorks]);
 	return (
 		<section data-slice-type={slice.slice_type} data-slice-variation={slice.variation}>
-			<section className="!px-8 md:px-0 pt-16 md:pt-[200px] max-w-[1440px] mx-auto ">
+			<section className="!px-8 md:px-0 pt-16 md:pt-[200px] max-w-[1440px] mx-auto min-h-screen">
 				<div className="flex flex-col gap-16">
 					<h1 className="font-soria text-7xl  w-1/3">{page ? page.data.page_title : ""}</h1>
 					{/* FILTER */}

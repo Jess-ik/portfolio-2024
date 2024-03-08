@@ -73,9 +73,9 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 
 	return (
 		<section className="c-section relative">
-			<div className="relative xl:sticky top-0  w-screen h-[70vh] bg-beige flex flex-col gap-16 justify-center items-center ">
+			<div className="relative xl:sticky top-0  w-screen h-[80vh] bg-beige flex flex-col gap-16 justify-end items-center pb-[5%] ">
 				<h1 className=" font-soria text-7xl  ">{slice.primary.title}</h1>
-				<p className=" font-[200] text-grey w-[80vw] md:w-[50vw] text-base  md:text-xl text-center">{slice.primary.description}</p>
+				<p className=" font-[200] text-grey w-[80vw] md:w-[50vw] text-base  md:text-lg text-center">{slice.primary.description}</p>
 
 				<div className="flex flex-col justify-center items-center gap-4">
 					<Button field={slice.primary.cta_link}>{slice.primary.cta_text}</Button>

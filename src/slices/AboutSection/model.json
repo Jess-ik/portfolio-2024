@@ -55,6 +55,14 @@
             "constraint": {},
             "thumbnails": []
           }
+        },
+        "about_image_mobile": {
+          "type": "Image",
+          "config": {
+            "label": "About Image Mobile",
+            "constraint": {},
+            "thumbnails": []
+          }
         }
       },
       "items": {
@@ -87,6 +95,14 @@
           "type": "Image",
           "config": {
             "label": "Service Image",
+            "constraint": {},
+            "thumbnails": []
+          }
+        },
+        "service_image_mobile": {
+          "type": "Image",
+          "config": {
+            "label": "Service Image Mobile",
             "constraint": {},
             "thumbnails": []
           }
