@@ -98,7 +98,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 			{/* PILL IMAGE DESKTOP */}
 			<div ref={imageContainer} className="hidden xl:flex image-container overflow-x-hidden  h-screen sticky  top-0  justify-center items-center">
 				<div className="w-[50vw] "></div>
-				<div className="aboutAnim pill-container flex justify-center h-[80%]  ">
+				<div className="aboutAnim pill-container flex justify-center h-[65%]  ">
 					{selectedService !== null ? (
 						<Image src={slice.items[selectedService]?.service_image?.url ?? ""} alt={slice.items[selectedService]?.service_image?.alt ?? ""} height={155} width={(1550 * 10) / 31} className="rounded-full object-cover" layout="responsive" />
 					) : (
@@ -140,10 +140,10 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 							onMouseOver={() => {
 								setSelectedService(index);
 							}}
-							className="service-container mx-8 xl:mx-0 px-8 xl:px-0 my-16 xl:my-0 py-32 xl:py-0 cursor-pointer   rounded-xl lg:h-[60vh] xl:h-[80vh] xl:pt-[20vh]  flex flex-col justify-center xl:justify-start relative">
+							className="service-container mx-8 xl:mx-0 px-8 xl:px-0 my-16 xl:my-0 py-32 xl:py-0 cursor-pointer   rounded-xl lg:h-[60vh] xl:h-[80vh] xl:pt-[20vh]  flex flex-col justify-center xl:justify-start relative" >
 							<h3 className="text-4xl md:text-7xl lg:text-[80px] font-semibold uppercase w-fit max-w-[14rem] md:max-w-xl   xl:leading-[6rem]">{item.service}</h3>
 							{/* SKILLS */}
-							<ul className="skills flex gap-4 uppercase">
+							<ul className="skills flex flex-wrap gap-4 uppercase pb-2 ">
 								{Array.isArray(item.skills) &&
 									item.skills.map((skill, skillIndex) => (
 										<li key={skillIndex} className="skill flex items-center">
@@ -152,7 +152,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 									))}
 							</ul>
 							{/* TOOLS */}
-							<ul className="flex gap-6 uppercase">
+							<ul className="flex flex-wrap gap-6 uppercase">
 								{Array.isArray(item.tools) &&
 									item.tools.map((tool, toolIndex) => (
 										<li key={toolIndex} className="tool">

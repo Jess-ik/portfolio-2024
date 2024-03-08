@@ -1,11 +1,12 @@
 "use client";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { getIconComponent } from "./Icons";
 
 export default function LocalInfo() {
 	const [currentTime, setCurrentTime] = useState<string>("");
 	const [currentTemp, setCurrentTemp] = useState<number>(0);
-	const [currentWeather, setCurrentWeather] = useState<number>(0);
+	const [currentWeather, setCurrentWeather] = useState<string>("");
 	const [weatherIconCode, setWeatherIconCode] = useState<string>("");
 	const [weatherIcon, setWeatherIcon] = useState<string>("");
 	// Fetch current weather & Time
@@ -17,9 +18,11 @@ export default function LocalInfo() {
 				const data = await response.json();
 
 				setCurrentTemp(data.main.temp);
-				setCurrentWeather(data.weather[0].description);
+				setCurrentWeather(data.weather[0].main);
 				setWeatherIconCode(data.weather[0].icon);
-				setWeatherIcon("http://openweathermap.org/img/wn/" + weatherIconCode + "@2x.png");
+				//setWeatherIcon("http://openweathermap.org/img/wn/" + weatherIconCode + "@2x.png");
+				setWeatherIcon(currentWeather)
+	
 			} catch (error) {
 				console.error("Error fetching weather:", error);
 			}
@@ -36,7 +39,7 @@ export default function LocalInfo() {
 		updateTime();
 		const interval = setInterval(updateTime, 1000);
 		return () => clearInterval(interval);
-	}, [weatherIconCode]);
+	}, [currentWeather, weatherIconCode]);
 
 	
 
@@ -45,7 +48,9 @@ export default function LocalInfo() {
 			<li>Avignon, FR </li>
 			<li>{currentTime} </li>
 			<li>
-				<Image width={50} height={50} loading="lazy" className="inline" src={weatherIcon ? weatherIcon : "http://openweathermap.org/img/wn/02d@2x.png"} alt="Weather Icon" />			
+				{/* 				<Image width={50} height={50} loading="lazy" className="inline" src={weatherIcon ? weatherIcon : "http://openweathermap.org/img/wn/02d@2x.png"} alt="Weather Icon" />			
+ */}
+				{weatherIcon ? <i>{getIconComponent(weatherIcon)}</i> : <i>{getIconComponent("clearsky")}</i>}
 			</li>
 			<li>{Math.round(currentTemp - 273.5)}°C</li>
 		</ul>
