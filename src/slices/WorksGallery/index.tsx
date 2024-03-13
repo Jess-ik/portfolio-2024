@@ -50,7 +50,7 @@ const WorksGallery = ({ slice }: WorksGalleryProps): JSX.Element => {
 			setPage(page);
 
 			setProjects(data.reverse() as ProjectPageDocument<string>[]);
-			setFilteredWorks(data.reverse() as ProjectPageDocument<string>[]);
+			setFilteredWorks(data as ProjectPageDocument<string>[]);
 		};
 
 		fetchData();
