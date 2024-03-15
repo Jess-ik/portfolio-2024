@@ -143,7 +143,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 							className="service-container mx-8 xl:mx-0 px-8 xl:px-0 my-16 xl:my-0 py-32 xl:py-0 cursor-pointer   rounded-xl lg:h-[60vh] xl:h-[80vh] xl:pt-[20vh]  flex flex-col justify-center xl:justify-start relative" >
 							<h3 className="text-4xl md:text-7xl lg:text-[80px] font-semibold uppercase w-fit max-w-[14rem] md:max-w-xl   xl:leading-[6rem]">{item.service}</h3>
 							{/* SKILLS */}
-							<ul className="skills flex flex-wrap gap-4 uppercase pb-2 ">
+							<ul className="skills flex flex-wrap gap-4 gap-y-0  uppercase pb-2 mt-4">
 								{Array.isArray(item.skills) &&
 									item.skills.map((skill, skillIndex) => (
 										<li key={skillIndex} className="skill flex items-center">
@@ -152,7 +152,7 @@ const AboutSection = ({ slice }: AboutSectionProps): JSX.Element => {
 									))}
 							</ul>
 							{/* TOOLS */}
-							<ul className="flex flex-wrap gap-6 uppercase">
+							<ul className="flex flex-wrap gap-6 uppercase mt-4">
 								{Array.isArray(item.tools) &&
 									item.tools.map((tool, toolIndex) => (
 										<li key={toolIndex} className="tool">

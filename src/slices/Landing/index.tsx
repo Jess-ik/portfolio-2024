@@ -47,6 +47,8 @@ const Landing = ({ slice }: LandingProps): JSX.Element => {
 				<motion.p className="px-8 max-w-xl text-center font-light md:text-xl leading-8" custom={2} variants={item} initial="initial" whileInView="animate" viewport={{ once: true }}>
 					Designer and Front-end Developer
 				</motion.p>
+				{/* Scroll down */}
+				<div className="mouse bottom-16 md:bottom-24  "></div>
 			</div>
 		</section>
 	);

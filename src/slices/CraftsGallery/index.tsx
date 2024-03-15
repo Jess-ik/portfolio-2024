@@ -14,16 +14,16 @@ import { useTransform, useScroll, motion } from "framer-motion";
 const animCard = {
 	initial: {
 		opacity: 0,
-		y: -30,
+		scale: .9,
 	},
 	animate: (index: number) => ({
 		opacity: 1,
-		y: 0,
+		scale: 1,
 
 		transition: {
 			duration: 0.3,
-			ease: "easeOut",
-			delay: 0.08 * (index + 1),
+			ease: "easeInOut",
+			delay: 0.08 * (index + .08),
 		},
 	}),
 };
@@ -83,11 +83,11 @@ const CraftsGallery = ({ slice }: CraftsGalleryProps): JSX.Element => {
 				</div>
 			</div>
 			{/* MOBILE GALLERY */}
-			<div  className="columns-3 xl:hidden relative z-99 bg-dark p-8  ">
+			<div  className="columns-3 xl:hidden  bg-dark p-8  ">
 				
 				{slice.items &&
 					slice.items.map((item, index) => (
-						<motion.div key={index} variants={animCard} initial="initial" whileInView="animate" custom={index} viewport={{ once: true }} className="c-image-container pb-4" >
+						<motion.div key={index} variants={animCard} initial="initial" whileInView="animate" custom={index} viewport={{ once: true }} className="c-image-container  pb-4" >
 							<PrismicNextImage field={item.image} />
 						</motion.div>
 					))}

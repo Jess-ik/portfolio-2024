@@ -19,7 +19,42 @@ body {
 
 }
 
-
+.mouse {
+    width: 25px;
+    height: 45px;
+    border: 1px solid theme('colors.dark');
+    border-radius: 60px;
+    position: absolute;
+  }
+  
+  .mouse::before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: theme('colors.dark');
+    border-radius: 50%;
+    opacity: 1;
+    animation: wheel 2s infinite;
+    -webkit-animation: wheel 2s infinite;
+  }
+  
+  @keyframes wheel {
+    to {
+      opacity: 0;
+      top: 30px;
+    }
+  }
+  
+  @-webkit-keyframes wheel {
+    to {
+      opacity: 0;
+      top: 30px;
+    }
+  }
 
 
 
